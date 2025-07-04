@@ -1,0 +1,1180 @@
+Directory structure:
+└── basic_settings_menu/
+    ├── confirmation_dialog.gd
+    ├── confirmation_dialog.gd.uid
+    ├── plugin.cfg
+    ├── plugin.gd
+    ├── plugin.gd.uid
+    ├── setting_confirmation_dialog.tscn
+    ├── settings-test-sound.ogg
+    ├── settings-test-sound.ogg.import
+    ├── settings-test-sound.wav.import
+    ├── settings_applier.gd
+    ├── settings_applier.gd.uid
+    ├── settings_constants.gd
+    ├── settings_constants.gd.uid
+    ├── settings_manager.gd
+    ├── settings_manager.gd.uid
+    ├── settings_menu.gd
+    ├── settings_menu.gd.uid
+    ├── settings_menu.tscn
+    ├── settings_profile.gd
+    ├── settings_profile.gd.uid
+    ├── theme-settings.tres
+    ├── components/
+    │   ├── focusable_control.gd
+    │   └── focusable_control.gd.uid
+    └── templates/
+        ├── base_setting_control.gd
+        ├── base_setting_control.gd.uid
+        ├── boolean_container.tscn
+        ├── int_container.tscn
+        ├── option_container.tscn
+        └── slider_setting_container.tscn
+
+================================================
+File: confirmation_dialog.gd
+================================================
+class_name SettingConfirmationDialog extends ConfirmationDialog
+
+@onready var countdown_timer: Timer = %CountdownTimer
+
+var _base_message: String = "Keep these settings?\nReverting in %d seconds."
+var _is_active := false
+
+func _ready() -> void:
+	get_cancel_button().pressed.connect(_on_no_button_pressed)
+	get_ok_button().pressed.connect(_on_yes_button_pressed)
+
+func _process(delta: float) -> void:
+	if not _is_active: return
+	# Update the countdown text in the message
+	var time_left := int(ceil(countdown_timer.time_left))
+	dialog_text = _base_message % time_left
+
+func start(message_template: String, duration: float) -> void:
+	_base_message = message_template
+	countdown_timer.wait_time = duration
+	countdown_timer.start()
+	_is_active = true
+	show()
+	get_ok_button().grab_focus()
+
+func _stop() -> void:
+	if countdown_timer.is_stopped(): return
+	countdown_timer.stop()
+	_is_active = false
+	hide()
+
+func _on_yes_button_pressed() -> void:
+	_stop()
+
+func _on_no_button_pressed() -> void:
+	_stop()
+
+func _on_countdown_timer_timeout() -> void:
+	# If the timer runs out, it's the same as pressing "No".
+	_stop()
+	canceled.emit()
+
+
+
+================================================
+File: confirmation_dialog.gd.uid
+================================================
+uid://curtlv5hlt5iq
+
+
+
+================================================
+File: plugin.cfg
+================================================
+[plugin]
+
+name="Basic Settings Menu"
+description="A minimal settings menu to use and add options to."
+author="mlm-games"
+version="0.9.1"
+script="plugin.gd"
+
+
+
+================================================
+File: plugin.gd
+================================================
+@tool
+extends EditorPlugin
+
+var pluginPath: String = get_script().resource_path.get_base_dir()
+
+func _enter_tree():
+	#NOTE: Order matters if one depends on the other on the first frame.
+	add_autoload_singleton("SettingsManager", pluginPath + "/settings_manager.gd")
+	add_autoload_singleton("SettingsApplier", pluginPath + "/settings_applier.gd")
+
+
+func _exit_tree():
+	remove_autoload_singleton("SettingsManager")
+	remove_autoload_singleton("SettingsApplier")
+
+
+
+================================================
+File: plugin.gd.uid
+================================================
+uid://be4rip55bnfsc
+
+
+
+================================================
+File: setting_confirmation_dialog.tscn
+================================================
+[gd_scene load_steps=2 format=3 uid="uid://bwcsibejua3bb"]
+
+[ext_resource type="Script" uid="uid://curtlv5hlt5iq" path="res://addons/basic_settings_menu/confirmation_dialog.gd" id="1_uq3ti"]
+
+[node name="ConfirmationDialog" type="ConfirmationDialog"]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(335, 106)
+visible = true
+ok_button_text = "Apply"
+dialog_text = "The setting will be reverted in 15 seconds"
+dialog_autowrap = true
+cancel_button_text = "Revert"
+script = ExtResource("1_uq3ti")
+
+[node name="CountdownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+
+
+================================================
+File: settings-test-sound.ogg
+================================================
+[Non-text file]
+
+
+================================================
+File: settings-test-sound.ogg.import
+================================================
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjom0wv26i64a"
+path="res://.godot/imported/settings-test-sound.ogg-ae055326594730dd9c76b27d0d3f4460.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/basic_settings_menu/settings-test-sound.ogg"
+dest_files=["res://.godot/imported/settings-test-sound.ogg-ae055326594730dd9c76b27d0d3f4460.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
+
+
+
+================================================
+File: settings-test-sound.wav.import
+================================================
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5uvopnlu5ibd"
+path="res://.godot/imported/settings-test-sound.wav-0abc41fbb9581dddb5d8f3a4404b06e9.sample"
+
+[deps]
+
+source_file="res://addons/basic_settings_menu/settings-test-sound.wav"
+dest_files=["res://.godot/imported/settings-test-sound.wav-0abc41fbb9581dddb5d8f3a4404b06e9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
+
+
+
+================================================
+File: settings_applier.gd
+================================================
+extends Node
+
+func _ready() -> void:
+	SettingsManager.profile_changed.connect(apply_all_settings)
+	apply_all_settings()
+
+func apply_all_settings() -> void:
+	var profile: SettingsProfile = SettingsManager.get_profile()
+	if not is_instance_valid(profile): return
+
+	_apply_video_settings(profile.video)
+	_apply_audio_settings(profile.audio)
+	_apply_gameplay_settings(profile.gameplay)
+	_apply_accessibility_settings(profile.accessibility)
+	print("All settings applied.")
+
+func apply_single_setting(category: String, setting: String, value) -> void:
+	var profile = SettingsManager.get_profile()
+	
+	match category:
+		"video":
+			# We pass a temporary, modified dictionary to the apply function
+			var temp_settings = profile.video.duplicate()
+			temp_settings[setting] = value
+			_apply_video_settings(temp_settings)
+		"audio":
+			var temp_settings = profile.audio.duplicate()
+			temp_settings[setting] = value
+			_apply_audio_settings(temp_settings)
+
+
+func _apply_video_settings(settings: Dictionary) -> void:
+	var mode = DisplayServer.WINDOW_MODE_FULLSCREEN if settings.fullscreen else DisplayServer.WINDOW_MODE_WINDOWED
+	DisplayServer.window_set_mode(mode)
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, settings.borderless)
+	
+	if mode == DisplayServer.WINDOW_MODE_WINDOWED:
+		var resolution: Vector2i = settings.resolution
+		DisplayServer.window_set_size(resolution)
+		var screen_size = DisplayServer.screen_get_size()
+		DisplayServer.window_set_position(screen_size / 2 - resolution / 2)
+
+func _apply_audio_settings(settings: Dictionary) -> void:
+	for bus_name in settings:
+		var bus_index = AudioServer.get_bus_index(bus_name)
+		if bus_index != -1:
+			AudioServer.set_bus_volume_db(bus_index, linear_to_db(settings[bus_name]))
+
+func _apply_gameplay_settings(settings: Dictionary) -> void:
+	Engine.max_fps = settings.max_fps
+
+func _apply_accessibility_settings(settings: Dictionary) -> void:
+	TranslationServer.set_locale(settings.current_locale)
+
+
+
+================================================
+File: settings_applier.gd.uid
+================================================
+uid://b5jtf7dbnupqj
+
+
+
+================================================
+File: settings_constants.gd
+================================================
+# Purpose: This Resource is now a PURE DATA container.
+# It holds the structure and default values of your settings.
+# All logic has been moved to SettingsData and SettingsApplier.
+
+class_name SettingsConstants extends Resource
+
+const LOCALES = {
+	"en": "English",
+	"fr": "French / Français",
+	"es": "Spanish / Español",
+	"de": "German / Deutsch",
+	"it": "Italian / Italiano",
+	"br": "Portuguese / Português (BR)",
+	"pt": "Portuguese / Português (PT)",
+	"ru": "Russian / Русский",
+	"el": "Greek / Ελληνικά",
+	"tr": "Turkish / Türkçe",
+	"da": "Danish / Dansk",
+	"nb": "Norwegian (NB) / Norsk Bokmål",
+	"sv": "Swedish / Svenska",
+	"nl": "Dutch / Nederlands",
+	"pl": "Polish / Polski",
+	"fi": "Finnish / Suomi",
+	"ja": "Japanese / 日本語",
+	"zh": "Simplified Chinese / 简体中文",
+	"lzh": "Traditional Chinese / 繁体中文",
+	"ko": "Korean / 한국어",
+	"cs": "Czech / Čeština",
+	"hu": "Hungarian / Magyar",
+	"ro": "Romanian / Română",
+	"th": "Thai / ภาษาไทย",
+	"bg": "Bulgarian / Български",
+	"he": "Hebrew / עברית",
+	"ar": "Arabic / العربية",
+	"bs": "Bosnian"
+}
+
+const RESOLUTIONS_ARRAY : Array[Vector2i] = [
+	Vector2i(640, 360),
+	Vector2i(960, 540),
+	Vector2i(1024, 576),
+	Vector2i(1280, 720),
+	Vector2i(1600, 900),
+	Vector2i(1920, 1080),
+	Vector2i(2048, 1152),
+	Vector2i(2560, 1440),
+	Vector2i(3200, 1800),
+	Vector2i(3840, 2160),
+]
+
+
+
+================================================
+File: settings_constants.gd.uid
+================================================
+uid://i5mtd24kfnb5
+
+
+
+================================================
+File: settings_manager.gd
+================================================
+# Purpose: This autoload is the SINGLE SOURCE OF TRUTH for settings data.
+# Its job is to load, save, provide access to, and merge settings with defaults.
+# It does NOT apply settings.
+
+extends Node
+
+# This signal is emitted whenever settings are loaded or changed,
+# telling other systems (like SettingsApplier) to update.
+signal profile_changed
+
+var _active_profile: SettingsProfile
+
+const SETTINGS_SAVE_PATH: String = "user://settings_profile.tres"
+
+func _ready() -> void:
+	_load_and_reconcile_profile()
+
+
+# Public API
+
+func get_profile() -> SettingsProfile:
+	return _active_profile
+
+func get_setting(category: String, setting: String, default = null):
+	var cat_dict: Dictionary = _active_profile.get(category)
+	if cat_dict.has(setting):
+		return cat_dict.get(setting)
+
+	var default_res = SettingsProfile.new()
+	if default_res.has(category):
+		return default_res.get(category).get(setting, default)
+	
+
+func set_setting(category: String, setting: String, value) -> void:
+	var cat_dict: Dictionary = _active_profile.get(category)
+	cat_dict[setting] = value
+	# Don't save immediately. Personal preference / The user might change more things and would not want to save them.
+	# The "Save" button in the UI will call save_profile().
+
+
+# Load/Save Logic
+
+func _load_and_reconcile_profile() -> void:
+	var default_profile = SettingsProfile.new()
+	
+	if FileAccess.file_exists(SETTINGS_SAVE_PATH):
+		var loaded_profile = ResourceLoader.load(SETTINGS_SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if loaded_profile is SettingsProfile:
+			_active_profile = _reconcile(default_profile, loaded_profile)
+		else:
+			push_warning("Settings file is corrupt. Loading defaults.")
+			_active_profile = default_profile
+	else:
+		_active_profile = default_profile
+	
+	save_profile() # Save immediately to ensure new default values are written to disk.
+	profile_changed.emit()
+	
+## Ensures that if new settings are added to the default profile,
+## they are merged into the user's loaded profile.
+func _reconcile(default: SettingsProfile, user: SettingsProfile) -> SettingsProfile:
+	var reconciled_profile = user.duplicate() # Start with the user's saved data
+	
+	for category_dict_info in default.get_script().get_script_property_list():
+		var category_name = category_dict_info.name
+		if category_name == "settings_profile.gd": continue #Needed to skip
+		var default_settings: Dictionary = default.get(category_name)
+		var user_settings: Dictionary = reconciled_profile.get(category_name)
+		
+		for setting_key in default_settings:
+			if not user_settings.has(setting_key):
+				# The user's save file is missing this setting. Add it from the defaults.
+				user_settings[setting_key] = default_settings[setting_key]
+				
+	return reconciled_profile
+
+func save_profile() -> void:
+	if not _active_profile:
+		push_error("Cannot save, no settings resource loaded.")
+		return
+	
+	# ResourceSaver handles serialization of all Godot types correctly.
+	var error = ResourceSaver.save(_active_profile, SETTINGS_SAVE_PATH)
+	if error == OK:
+		print("Settings saved to: " + SETTINGS_SAVE_PATH)
+		profile_changed.emit() # Signal that settings were saved and should be applied.
+	else:
+		push_error("Failed to save settings. Error code: " + str(error))
+
+
+
+================================================
+File: settings_manager.gd.uid
+================================================
+uid://wfehnu87uuxk
+
+
+
+================================================
+File: settings_menu.gd
+================================================
+#TODO: ADD ICONS SAYING ESC FOR BACK, ENTER FOR SELECT
+#TODO: ADD pause_on_alt_tab
+#TODO: VolumeSliders makes sound when changed indicating the sound change
+#FIXME: resoultion items not being applied properly, check if lazy mode works
+#const BUS_MASTER = "Master"
+#const BUS_MUSIC = "Music"
+#const BUS_SFX = "SFX"
+
+# Purpose: This script only manages the UI scene.
+# It dynamically builds the UI from setting templates based on the data
+# in SettingsData, and connects their signals.
+
+class_name SettingsMenu extends Control
+
+# References to the templates used to build the UI
+const BOOL_CONTAINER = preload("res://addons/basic_settings_menu/templates/boolean_container.tscn")
+const OPTION_CONTAINER = preload("res://addons/basic_settings_menu/templates/option_container.tscn")
+const SLIDER_CONTAINER = preload("res://addons/basic_settings_menu/templates/slider_setting_container.tscn")
+const INT_CONTAINER = preload("res://addons/basic_settings_menu/templates/int_container.tscn")
+
+const TYPE_TO_TEMPLATE_MAP: Dictionary = {
+	TYPE_BOOL: BOOL_CONTAINER,
+	TYPE_INT: INT_CONTAINER,
+	TYPE_FLOAT: SLIDER_CONTAINER,
+}
+
+@onready var _tabs: Dictionary = {
+	"accessibility": %Accessibility,
+	"gameplay": %Gameplay,
+	"video": %Video,
+	"audio": %Audio,
+}
+
+@onready var confirmation_dialog: ConfirmationDialog = %ConfirmationDialog
+
+var _pending_confirmation_control: BaseSettingControl
+var _pending_old_value
+
+var can_play_focus_sfx := false
+
+func _ready() -> void:
+	confirmation_dialog.confirmed.connect(_on_dialog_confirmed)
+	confirmation_dialog.canceled.connect(_on_dialog_dismissed)
+	
+	_build_ui_from_settings_profile()
+	
+	# To prevent the initial focus button sound
+	get_tree().create_timer(0.1, false).timeout.connect(func(): can_play_focus_sfx = true)
+
+
+	
+	# Adding a new setting in GameSettingsSave.gd,
+	# will make it appear here automatically if a rule is added to the functions below.
+
+func _build_ui_from_settings_profile() -> void:
+	var profile: SettingsProfile = SettingsManager.get_profile()
+	
+	# Iterate over categories defined in the profile (e.g., "video", "audio")
+	for category_name in profile.get_script().get_script_property_list():
+		var category_key = category_name.name
+		if not _tabs.has(category_key): continue
+
+		var parent_container: VBoxContainer = _tabs[category_key]
+		var settings_in_category: Dictionary = profile.get(category_key)
+
+		# Iterate over settings within that category (e.g., "fullscreen", "resolution")
+		for setting_key in settings_in_category:
+			var setting_value = settings_in_category[setting_key]
+			_create_setting_control(parent_container, category_key, setting_key, setting_value)
+
+func _create_setting_control(parent: Container, category: String, setting_name: String, value, options: Dictionary = {}, requires_conf := false) -> void:
+	var template: PackedScene
+
+	# Determine which template and options to use based on setting name or type
+	match setting_name:
+		"resolution":
+			template = OPTION_CONTAINER
+			for res in SettingsConstants.RESOLUTIONS_ARRAY:
+				options[res] = "%d x %d" % [res.x, res.y]
+				requires_conf = true
+			
+		"current_locale":
+			template = OPTION_CONTAINER
+			options = SettingsConstants.LOCALES
+		_:
+			# Default to a template based on the value's data type
+			template = TYPE_TO_TEMPLATE_MAP.get(typeof(value))
+
+	if not template:
+		push_warning("No template found for setting '%s' in category '%s'" % [setting_name, category])
+		return
+
+	var container: BaseSettingControl = template.instantiate()
+	
+	container._requires_confirmation = requires_conf
+	
+	if requires_conf:
+		container.confirmation_requested.connect(_on_confirmation_requested.bind(container))
+	
+	container.initialize.call_deferred(category, setting_name, options)
+	parent.add_child(container)
+
+func _on_confirmation_requested(old_value, new_value, control: BaseSettingControl) -> void:
+	_pending_confirmation_control = control
+	_pending_old_value = old_value
+
+	# 1. Temporarily APPLY the new setting for preview
+	SettingsApplier.apply_single_setting(control._category, control._setting_name, new_value)
+	
+	# 2. Start the dialog
+	var msg = "Keep these display settings?\nReverting in %d seconds."
+	confirmation_dialog.start(msg, 10.0)
+
+func _on_dialog_confirmed() -> void:
+	if not _pending_confirmation_control: return
+	
+	# 1. The user confirmed. Officially set the value in the data model.
+	var control = _pending_confirmation_control
+	var new_value = control.interactive_element.get_item_metadata(control.interactive_element.selected)
+	SettingsManager.set_setting(control._category, control._setting_name, new_value)
+	
+	# 2. Clear the pending state
+	_pending_confirmation_control = null
+	_pending_old_value = null
+
+func _on_dialog_dismissed() -> void:
+	if not _pending_confirmation_control: return
+	
+	# 1. User canceled or timer ran out. Revert the setting.
+	var control = _pending_confirmation_control
+	SettingsApplier.apply_single_setting(control._category, control._setting_name, _pending_old_value)
+	
+	# 2. Revert the UI control to show the old value.
+	control.revert_ui_to_value(_pending_old_value)
+
+	# 3. Clear the pending state
+	_pending_confirmation_control = null
+	_pending_old_value = null
+
+func _on_save_button_pressed() -> void:
+	SettingsManager.save_profile()
+	# The 'settings_changed' signal in SettingsManager will trigger SettingsApplier.
+
+
+func _on_back_button_pressed() -> void:
+	# This should transition back to your main menu or previous scene
+	# For now, it just hides the settings screen.
+	queue_free()
+
+
+
+================================================
+File: settings_menu.gd.uid
+================================================
+uid://dcvc700ur1w4b
+
+
+
+================================================
+File: settings_menu.tscn
+================================================
+[gd_scene load_steps=5 format=3 uid="uid://dp42fom7cc3n0"]
+
+[ext_resource type="Script" uid="uid://dcvc700ur1w4b" path="res://addons/basic_settings_menu/settings_menu.gd" id="2_m8nmd"]
+[ext_resource type="PackedScene" uid="uid://bwcsibejua3bb" path="res://addons/basic_settings_menu/setting_confirmation_dialog.tscn" id="3_3fo0h"]
+[ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="6_3nbua"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n80e"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_m8nmd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.533333, 0.6, 0.780392, 0.101961)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2n80e")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 1
+
+[node name="MENU_OPTIONS_ACCESSIBILITY" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+metadata/_tab_index = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_ACCESSIBILITY"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_ACCESSIBILITY/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Accessibility" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_ACCESSIBILITY/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="MENU_OPTIONS_GAMEPLAY" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+metadata/_tab_index = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_GAMEPLAY"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_GAMEPLAY/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Gameplay" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_GAMEPLAY/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MENU_OPTIONS_VIDEO" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+metadata/_tab_index = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_VIDEO"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_VIDEO/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Video" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_VIDEO/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MENU_OPTIONS_SOUND" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+metadata/_tab_index = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_SOUND"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_SOUND/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Audio" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/MENU_OPTIONS_SOUND/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BottomContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/BottomContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+text = "MENU_LABEL_APPLY_AND_SAVE"
+script = ExtResource("6_3nbua")
+metadata/_custom_type_script = "uid://cmo5qw3rubish"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/BottomContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "MENU_LABEL_BACK"
+script = ExtResource("6_3nbua")
+metadata/_custom_type_script = "uid://cmo5qw3rubish"
+
+[node name="ConfirmationDialog" parent="." instance=ExtResource("3_3fo0h")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BottomContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BottomContainer/BackButton" to="." method="_on_back_button_pressed"]
+
+
+
+================================================
+File: settings_profile.gd
+================================================
+class_name SettingsProfile extends Resource
+
+#@export_group("Accessibility")
+@export var accessibility: Dictionary = {
+	"current_locale": "en",
+}
+#@export_group("Gameplay")
+@export var gameplay: Dictionary = {
+	"max_fps": 60,
+}
+#@export_group("Video")
+@export var video: Dictionary = {
+	"fullscreen": true,
+	"borderless": false,
+	"resolution": Vector2i(1920, 1080),
+}
+#@export_group("Audio")
+@export var audio: Dictionary = {
+	"Master": 0.8,
+	"Music": 0.8,
+	"Sfx": 0.8,
+}
+
+
+
+================================================
+File: settings_profile.gd.uid
+================================================
+uid://kf1yhyu5x6xg
+
+
+
+================================================
+File: theme-settings.tres
+================================================
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bt255sn41frcj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g20on"]
+bg_color = Color(0.772116, 0.796353, 0.897034, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.639216, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a8sc"]
+bg_color = Color(0.337577, 0.372613, 0.549604, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.337577, 0.372613, 0.549604, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngavk"]
+bg_color = Color(0.337577, 0.372613, 0.549604, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pgd0"]
+bg_color = Color(0.24, 0.15, 0.19, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(0.4, 0.22, 0.42, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3bfg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxl3g"]
+bg_color = Color(0.164706, 0.184314, 0.294118, 1)
+border_width_top = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83cr2"]
+bg_color = Color(0.164945, 0.186036, 0.294891, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2ery"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_373yv"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_top = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krocb"]
+content_margin_left = 20.0
+content_margin_top = 4.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0.34902, 0.34902, 0.607843, 0.6)
+border_width_left = 15
+border_width_right = 15
+border_color = Color(0.176471, 0.176471, 0.176471, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+
+[resource]
+Button/colors/font_focus_color = Color(0.522131, 0.0381378, 0.535528, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_g20on")
+Button/styles/normal = SubResource("StyleBoxFlat_4a8sc")
+Button/styles/pressed = SubResource("StyleBoxFlat_ngavk")
+GridContainer/constants/v_separation = 20
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_0pgd0")
+ScalerButton/base_type = &"Button"
+ScalerButton/styles/normal = SubResource("StyleBoxEmpty_a3bfg")
+TabBar/styles/tab_selected = SubResource("StyleBoxFlat_mxl3g")
+TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_83cr2")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_q2ery")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_373yv")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_krocb")
+
+
+
+================================================
+File: components/focusable_control.gd
+================================================
+## All your template scenes (boolean_container, etc.) should have this script as their root.
+class_name FocusableControl extends HBoxContainer
+
+## The actual interactive element within the template (CheckButton, Slider, etc.)
+@onready var interactive_element: Control = $InteractablePartOfSetting
+
+var _focus_sfx_player: AudioStreamPlayer
+
+func _ready() -> void:
+	# Create an audio player for feedback sounds.
+	_focus_sfx_player = AudioStreamPlayer.new()
+	_focus_sfx_player.stream = preload("res://addons/basic_settings_menu/settings-test-sound.ogg")
+	_focus_sfx_player.bus = &"Sfx"
+	add_child(_focus_sfx_player)
+
+	# Ensure mouse hover also grants keyboard/controller focus.
+	mouse_entered.connect(interactive_element.grab_focus)
+	
+	# Play sound when the element gains focus.
+	interactive_element.focus_entered.connect(_on_focus_entered)
+
+func _on_focus_entered() -> void:
+	if _focus_sfx_player and _focus_sfx_player.stream:
+		_focus_sfx_player.play()
+
+
+
+================================================
+File: components/focusable_control.gd.uid
+================================================
+uid://cqqyq5lehsp27
+
+
+
+================================================
+File: templates/base_setting_control.gd
+================================================
+@tool
+class_name BaseSettingControl extends HBoxContainer
+
+signal confirmation_requested(old_value, new_value)
+
+@onready var interactive_element: Control = $InteractablePartOfSetting
+@onready var _label: Label = $Label
+
+var _category: String
+var _setting_name: String
+var _sfx_player: AudioStreamPlayer
+var _requires_confirmation := false
+
+
+func _ready() -> void:
+	_sfx_player = AudioStreamPlayer.new()
+	_sfx_player.stream = preload("res://addons/basic_settings_menu/settings-test-sound.ogg")
+	_sfx_player.bus = &"Sfx"
+	add_child(_sfx_player)
+
+	interactive_element.focus_entered.connect(func(): _sfx_player.play())
+	interactive_element.mouse_entered.connect(interactive_element.grab_focus)
+
+func initialize(category: String, setting_name: String, options: Dictionary = {}) -> void:
+	_category = category
+	_setting_name = setting_name
+	_label.text = setting_name.capitalize().replace("_", " ")
+
+	var current_value = SettingsManager.get_setting(_category, _setting_name)
+
+	match interactive_element:
+		interactive_element when interactive_element is CheckButton:
+			interactive_element.button_pressed = current_value
+			interactive_element.toggled.connect(_on_value_changed)
+		interactive_element when interactive_element is HSlider:
+			interactive_element.value = current_value
+			interactive_element.value_changed.connect(_on_value_changed)
+			interactive_element.value_changed.connect(func(_v): _sfx_player.play())
+		interactive_element when interactive_element is SpinBox:
+			interactive_element.value = current_value
+			interactive_element.value_changed.connect(_on_value_changed)
+		interactive_element when interactive_element is OptionButton:
+			var index_to_select = -1
+			for i in options.size():
+				var key = options.keys()[i]
+				var text = options[key]
+				interactive_element.add_item(text)
+				interactive_element.set_item_metadata(i, key)
+				if key == current_value:
+					index_to_select = i
+			
+			if index_to_select != -1:
+				interactive_element.select(index_to_select)
+			
+			# Connect to a new handler function instead of directly changing the value
+			interactive_element.item_selected.connect(_on_option_item_selected)
+
+func _on_option_item_selected(index: int) -> void:
+	var new_value = interactive_element.get_item_metadata(index)
+	
+	if _requires_confirmation:
+		var old_value = SettingsManager.get_setting(_category, _setting_name)
+		if old_value != new_value:
+			confirmation_requested.emit(old_value, new_value)
+	else:
+		_on_value_changed(new_value)
+
+
+func _on_value_changed(new_value) -> void:
+	SettingsManager.set_setting(_category, _setting_name, new_value)
+
+func revert_ui_to_value(value_to_revert_to) -> void:
+	if interactive_element is OptionButton:
+		for i in interactive_element.item_count:
+			if interactive_element.get_item_metadata(i) == value_to_revert_to:
+				interactive_element.select(i)
+				return
+
+
+
+================================================
+File: templates/base_setting_control.gd.uid
+================================================
+uid://bw0iehhew5tdr
+
+
+
+================================================
+File: templates/boolean_container.tscn
+================================================
+[gd_scene load_steps=2 format=3 uid="uid://cml6f2nq185vt"]
+
+[ext_resource type="Script" uid="uid://bw0iehhew5tdr" path="res://addons/basic_settings_menu/templates/base_setting_control.gd" id="1_2ycoi"]
+
+[node name="BooleanContainer" type="HBoxContainer"]
+offset_right = 53.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 2
+script = ExtResource("1_2ycoi")
+metadata/_custom_type_script = "uid://cqqyq5lehsp27"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="SpacerControl" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="InteractablePartOfSetting" type="CheckButton" parent="."]
+layout_mode = 2
+
+
+
+================================================
+File: templates/int_container.tscn
+================================================
+[gd_scene load_steps=2 format=3 uid="uid://bgjpgqx8f3igh"]
+
+[ext_resource type="Script" uid="uid://bw0iehhew5tdr" path="res://addons/basic_settings_menu/templates/base_setting_control.gd" id="1_8nk1n"]
+
+[node name="FPSContainer" type="HBoxContainer"]
+offset_right = 95.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+script = ExtResource("1_8nk1n")
+metadata/_custom_type_script = "uid://cqqyq5lehsp27"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="SpacerControl" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="InteractablePartOfSetting" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 300.0
+step = 5.0
+rounded = true
+alignment = 1
+
+
+
+================================================
+File: templates/option_container.tscn
+================================================
+[gd_scene load_steps=2 format=3 uid="uid://d1kniiwptb48v"]
+
+[ext_resource type="Script" uid="uid://bw0iehhew5tdr" path="res://addons/basic_settings_menu/templates/base_setting_control.gd" id="1_q0m8a"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 41.0
+offset_bottom = 23.0
+script = ExtResource("1_q0m8a")
+metadata/_custom_type_script = "uid://cqqyq5lehsp27"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpacerControl" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="InteractablePartOfSetting" type="OptionButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+
+
+================================================
+File: templates/slider_setting_container.tscn
+================================================
+[gd_scene load_steps=2 format=3 uid="uid://b3c7l5vjqgd12"]
+
+[ext_resource type="Script" uid="uid://bw0iehhew5tdr" path="res://addons/basic_settings_menu/templates/base_setting_control.gd" id="1_b8ea0"]
+
+[node name="SliderContainer" type="HBoxContainer"]
+offset_right = 17.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+script = ExtResource("1_b8ea0")
+metadata/_custom_type_script = "uid://cqqyq5lehsp27"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="SpacerControl" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="InteractablePartOfSetting" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+rounded = true
+
+
