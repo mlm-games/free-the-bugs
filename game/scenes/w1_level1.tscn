@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1puye38hm3ge"]
+[gd_scene load_steps=3 format=3 uid="uid://b1puye38hm3ge"]
 
 [ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/w1_level1.gd" id="1_0yau6"]
+[ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="2_lnir3"]
 
 [node name="W1Level1" type="Control"]
 layout_mode = 3
@@ -46,3 +47,22 @@ text = "class Hi {
 }"
 delimiter_strings = Array[String](["\" \"", "' '"])
 metadata/_edit_use_anchors_ = true
+
+[node name="HintButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -139.0
+offset_top = -133.0
+offset_right = -24.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 4
+text = "Hint!"
+script = ExtResource("2_lnir3")
+metadata/_custom_type_script = "uid://cmo5qw3rubish"

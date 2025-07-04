@@ -1,9 +1,6 @@
-@tool
 class_name AnimButton extends Button
 
 #NOTE: the hover and click audio is configured from UiAudioM
-
-var tween: Tween
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
@@ -12,8 +9,8 @@ func _ready() -> void:
 	button_up.connect(_on_button_up)
 	pressed.connect(_on_pressed)
 	
-	set_anchors_and_offsets_preset(Control.PRESET_CENTER)
-	size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	#set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	#size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	
 	pivot_offset = size/2
 	resized.connect(func(): pivot_offset = size/2)
@@ -22,21 +19,21 @@ func _ready() -> void:
 	
 
 func _on_mouse_entered() -> void:
-	reset_tween()
+	var tween = reset_tween()
 	tween.tween_property(self, "scale", Vector2(1.075, 1.075), 0.15).set_trans(Tween.TRANS_CUBIC)
 	if !Engine.is_editor_hint():
 		UiAudioM.play_hover_sound()
 
 func _on_mouse_exited() -> void:
-	reset_tween()
+	var tween = reset_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_CUBIC)
 
 func _on_button_down() -> void:
-	reset_tween()
+	var tween = reset_tween()
 	tween.tween_property(self, "scale", Vector2(0.95, 0.95), 0.1).set_trans(Tween.TRANS_CUBIC)
 
 func _on_button_up() -> void:
-	reset_tween()
+	var tween = reset_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_CUBIC)
 
 
@@ -54,7 +51,8 @@ func _on_pressed() -> void:
 	#click_stream_player.volume_db = -1000
 	# click_stream_player.queue_free()
 
-func reset_tween() -> void:
+func reset_tween(tween = create_tween()) -> Tween:
 	if tween:
 		tween.kill()
 	tween = create_tween()
+	return tween
