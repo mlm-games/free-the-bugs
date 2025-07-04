@@ -1,0 +1,15 @@
+~ start
+Trainer: [[Hi|Hello|Howdy]], welcome to my [wait=0.2] (welp, atleast currently broken) [wait=0.2] world of Gava.
+Trainer: Gava, is a mesmerizing little grogramming language based on the real world language of... [wait=1] 
+Trainer: Okay, will stop pretending like you don't know, well as you (probably might have) guessed..
+Trainer: This is a training game and there is a lottt of text. So be prepared to "read" (drumroll.....)
+Trainer: Lets start with the basics, shall we?
+#Nathan: Here are some choices.
+#- First one
+#	Nathan: You picked the first one.
+#- Second one
+#	Nathan: You picked the second one.
+#- Start again => start
+#- End the conversation => END
+#Nathan: For more information see the online documentation.
+=> END

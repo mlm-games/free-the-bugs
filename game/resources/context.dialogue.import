@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bcyitiwfyenvi"
+path="res://.godot/imported/context.dialogue-d63ca99323d68fb899f4521ae223ae83.tres"
+
+[deps]
+
+source_file="res://game/resources/context.dialogue"
+dest_files=["res://.godot/imported/context.dialogue-d63ca99323d68fb899f4521ae223ae83.tres"]
+
+[params]
+
+defaults=true

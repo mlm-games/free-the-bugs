@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="<PlaceHolderName>"
-run/main_scene="uid://dp42fom7cc3n0"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/name="Free the bugs"
+config/description="A game where you fix a programming language's bugs (trying to be educational)"
+config/version="0.0.1"
+run/main_scene="uid://b1puye38hm3ge"
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.0924416, 0.147392, 0.187741, 1)
 config/icon="res://icon.svg"
 
@@ -26,10 +28,11 @@ UiAudioM="*res://addons/my-ecosystem-template/autoloads/ui_audio_manager.gd"
 SettingsManager="*res://addons/basic_settings_menu/settings_manager.gd"
 SettingsApplier="*res://addons/basic_settings_menu/settings_applier.gd"
 PauseMenu="*res://addons/basic_settings_menu/pause_menu.tscn"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg")
+enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 
@@ -53,6 +56,7 @@ redo={
 [internationalization]
 
 locale/translations=PackedStringArray("res://locale/translations.ar.translation", "res://locale/translations.bg.translation", "res://locale/translations.br.translation", "res://locale/translations.bs.translation", "res://locale/translations.cs.translation", "res://locale/translations.da.translation", "res://locale/translations.de.translation", "res://locale/translations.el.translation", "res://locale/translations.en.translation", "res://locale/translations.es.translation", "res://locale/translations.fi.translation", "res://locale/translations.fr.translation", "res://locale/translations.he.translation", "res://locale/translations.hu.translation", "res://locale/translations.it.translation", "res://locale/translations.ja.translation", "res://locale/translations.ko.translation", "res://locale/translations.lzh.translation", "res://locale/translations.nb.translation", "res://locale/translations.nl.translation", "res://locale/translations.pl.translation", "res://locale/translations.pt.translation", "res://locale/translations.ro.translation", "res://locale/translations.ru.translation", "res://locale/translations.sv.translation", "res://locale/translations.th.translation", "res://locale/translations.tr.translation", "res://locale/translations.zh.translation")
+locale/translations_pot_files=PackedStringArray("res://game/resources/context.dialogue")
 
 [rendering]
 
