@@ -1,11 +1,12 @@
 ~ hint_w1_level1
-Nathan: Every complete command in Java must end with a semicolon (;). It's like the period at the end of a sentence.
-Nathan: Here are some choices.
+Trainer: Every complete command in Java must end with a semicolon (;). It's like the period at the end of a sentence.
+Trainer: Here are some choices.
 - What if it ends with a { ?
-	Nathan: That's one of the only cases where it doesn't end with a semicolon. But it would (most definitely) end with another } somewhere else.
+	Trainer: That's one of the only cases where it doesn't end with a semicolon. But it would (most definitely) end with another } somewhere else.
 - What if i use a backslash at the end of a line?
-	Nathan: Babies only please... (You can't start with all that, cmon...)
+	Trainer: It doesn't look like there is a rookie here, [wave]did you reallly need the hint?...
+	Trainer: (You can't start with all that, cmon...)
 - Review hint? => hint_w1_level1
 - Exit hint => END
-Nathan: For more information see the online documentation.
+Trainer: Okay, now back to solving.
 => END

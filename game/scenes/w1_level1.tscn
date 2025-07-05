@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1puye38hm3ge"]
+[gd_scene load_steps=5 format=3 uid="uid://b1puye38hm3ge"]
 
 [ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/w1_level1.gd" id="1_0yau6"]
 [ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="2_lnir3"]
+[ext_resource type="Resource" uid="uid://br0g15mlkqp0p" path="res://game/resources/hints.dialogue" id="2_xnfq2"]
+[ext_resource type="Resource" uid="uid://bcyitiwfyenvi" path="res://game/resources/context.dialogue" id="3_ip430"]
 
 [node name="W1Level1" type="Control"]
 layout_mode = 3
@@ -11,6 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0yau6")
+hint_dialogue = ExtResource("2_xnfq2")
+level_dialogue = ExtResource("3_ip430")
 
 [node name="CodeArea" type="CodeEdit" parent="."]
 unique_name_in_owner = true
@@ -23,7 +27,7 @@ anchor_bottom = 0.654321
 grow_horizontal = 2
 grow_vertical = 2
 text = "class Hi {
-	main() {
+	void main() {
 		int health = 100
 	}
 }"
@@ -41,7 +45,7 @@ anchor_bottom = 0.654321
 grow_horizontal = 2
 grow_vertical = 2
 text = "class Hi {
-	main() {
+	void main() {
 		int health = 100;
 	}
 }"
@@ -66,3 +70,15 @@ size_flags_vertical = 4
 text = "Hint!"
 script = ExtResource("2_lnir3")
 metadata/_custom_type_script = "uid://cmo5qw3rubish"
+
+[node name="TipLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 28.0
+offset_top = 561.0
+offset_right = 842.0
+offset_bottom = 636.0
+bbcode_enabled = true
+text = "[wave]Tip: Click anywhere in the box with the code to edit!"
+horizontal_alignment = 1
+vertical_alignment = 1
