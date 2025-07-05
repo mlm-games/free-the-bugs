@@ -1,14 +1,27 @@
-~ start
+~ W1Level1Start
 Trainer: [[Hi|Hello|Howdy]], welcome to my [wait=0.2] (welp, atleast currently broken) [wait=0.2] world of Gava.
 Trainer: Gava, is a mesmerizing little grogramming language based on the real world language of... [wait=1] 
+#Probably should give an introduction of a bug with the grogramming example, but too much text
 Trainer: Okay, will stop pretending like you don't know, well as you (probably might have) guessed..
-Trainer: This is a training game and there is a lottt of text. So be prepared to "read" (drumroll.....)
+Trainer: This is a training game and there is a l000t of text. So be prepared to "read" very much. So 
+Trainer: You will have to free the "snippets" from few pesky little bugs to make it show it's [wave] real purpose...[/wave]
+Trainer: Instead of it just annoying us with fault lines (and me annoying you with walls of text ~.~)
 Trainer: Lets start with the basics, shall we?
 => END
 
-~ w1_level1_end
+~ W1Level1End
 
-Trainer: Woah, look at that, you completed the level.
+Trainer: Woah, look at that, you completed the level!
 Trainer: [wave]Lets move too the next one...
 => END
 #TODO: With or without looking at the hint choices
+
+~ W1Level2Start
+Trainer: So this is a little harder than the previous one, but nothing you can't solve[wait=0.2] (maybe)
+=> END
+
+~ W1Level2End
+
+Trainer: Well, hope that was easier than I said it was... So
+Trainer: [wave]Lets move to the next one.
+=> END

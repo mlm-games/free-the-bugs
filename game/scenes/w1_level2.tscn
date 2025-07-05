@@ -1,24 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1puye38hm3ge"]
+[gd_scene load_steps=5 format=3 uid="uid://dfx5q5jcpslsh"]
 
-[ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/w1_level1.gd" id="1_0yau6"]
-[ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="2_lnir3"]
-[ext_resource type="Resource" uid="uid://br0g15mlkqp0p" path="res://game/resources/hints.dialogue" id="2_xnfq2"]
-[ext_resource type="Resource" uid="uid://bcyitiwfyenvi" path="res://game/resources/context.dialogue" id="3_ip430"]
-[ext_resource type="PackedScene" uid="uid://dfx5q5jcpslsh" path="res://game/scenes/w1_level2.tscn" id="4_ip430"]
+[ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/w1_level1.gd" id="1_6wlsq"]
+[ext_resource type="Resource" uid="uid://br0g15mlkqp0p" path="res://game/resources/hints.dialogue" id="2_o7d8x"]
+[ext_resource type="Resource" uid="uid://bcyitiwfyenvi" path="res://game/resources/context.dialogue" id="3_xnt2t"]
+[ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="4_eikdp"]
 
-[node name="W1Level1" type="Control"]
+[node name="W1Level2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0yau6")
-edited_once_tip = "[wave]Ignore the [i]class void main[/i] part for now, thats just the boilerplate."
-edited_once_after_hint_tip = "[wave]The\"[wave]The bug appears to be present in [i][b]line 3[/b][/i].\" bug appears to be present in [i][b]line 3[/b][/i]."
-hint_dialogue = ExtResource("2_xnfq2")
-level_dialogue = ExtResource("3_ip430")
-next_scene = ExtResource("4_ip430")
+script = ExtResource("1_6wlsq")
+hint_dialogue = ExtResource("2_o7d8x")
+level_dialogue = ExtResource("3_xnt2t")
 
 [node name="CodeArea" type="CodeEdit" parent="."]
 unique_name_in_owner = true
@@ -32,7 +28,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "class Hi {
 	void main() {
-		int health = 100
+		int health = \"100\";
+		print(health);
 	}
 }"
 metadata/_edit_use_anchors_ = true
@@ -51,6 +48,7 @@ grow_vertical = 2
 text = "class Hi {
 	void main() {
 		int health = 100;
+		print(health);
 	}
 }"
 metadata/_edit_use_anchors_ = true
@@ -71,7 +69,7 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 4
 text = "Hint!"
-script = ExtResource("2_lnir3")
+script = ExtResource("4_eikdp")
 metadata/_custom_type_script = "uid://cmo5qw3rubish"
 
 [node name="TipLabel" type="RichTextLabel" parent="."]
@@ -82,13 +80,12 @@ offset_top = 561.0
 offset_right = 842.0
 offset_bottom = 636.0
 bbcode_enabled = true
-text = "[wave]Tip: Click anywhere in the box with the code to edit!"
+text = "[wave]Here the player has just spawned so his health must be 100, but the code fails..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OutputArea" type="CodeEdit" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_left = 798.0
 offset_top = 43.0
