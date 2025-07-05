@@ -1,3 +1,5 @@
 # Initial template for my godot games
 
-A Tip: Try already successful stuff until you are satisfied (in the profession maintainability aspect) and can do something new
+## Used Assets
+
+NITW font - pieced together by [CascadiaKingsPup](https://www.reddit.com/user/CascadiaKingspup/) using a [font template from fandom](https://www.reddit.com/user/CascadiaKingspup/comments/s3qiug/night_in_the_woods_font/)

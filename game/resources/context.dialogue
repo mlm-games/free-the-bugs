@@ -1,11 +1,12 @@
 ~ W1Level1Start
-Trainer: [[Hi|Hello|Howdy]], welcome to my [wait=0.2] (welp, atleast currently broken) [wait=0.2] world of Gava.
-Trainer: Gava, is a mesmerizing little grogramming language based on the real world language of... [wait=1] 
+Trainer: [[Hi|Hello|Howdy]], welcome to my computer of Gava.
+Trainer: (though atleast currently broken, welp...)
+Trainer: So then, Gava, is a mesmerizing little grogramming language based on the real world language of... [wait=1] 
 #Probably should give an introduction of a bug with the grogramming example, but too much text
 Trainer: Okay, will stop pretending like you don't know, well as you (probably might have) guessed..
 Trainer: This is a training game and there is a l000t of text. So be prepared to "read" very much. So 
 Trainer: You will have to free the "snippets" from few pesky little bugs to make it show it's [wave] real purpose...[/wave]
-Trainer: Instead of it just annoying us with fault lines (and me annoying you with walls of text ~.~)
+Trainer: Instead of it just annoying us with error codes (and me annoying you with walls of text ~.~)
 Trainer: Lets start with the basics, shall we?
 => END
 
@@ -18,10 +19,28 @@ Trainer: [wave]Lets move too the next one...
 
 ~ W1Level2Start
 Trainer: So this is a little harder than the previous one, but nothing you can't solve[wait=0.2] (maybe)
+Trainer: Incase you might need some help, I'll just try to simplify the root of the problem using an [wave][i]analogy[/i][/wave]
+Trainer: Lets just say... We store information in boxes. A box for whole numbers is called int. A box for words is called String.
+Trainer: You are not supposed put words in a number box!
 => END
 
 ~ W1Level2End
 
-Trainer: Well, hope that was easier than I said it was... So
+Trainer: Well, hope that was easier than I said it was... maybe... So
 Trainer: [wave]Lets move to the next one.
+=> END
+
+~ W1Level3Start
+Trainer: Now from the next one onwards, I'll just leave it up to you and stop my bothering with the constant yapping...
+=> END
+
+~ W1Level3End
+
+Trainer: Nice,
+Trainer: [wave][[Lets move to the next one|Here comes another one|Oncoming..]]
+Trainer: You can say that you won the game here(if you're a noob in Java), and all others are just extra levels (which can be hard sometimes and do not have hints for now)
+Trainer: For those who want to continue, you are on your own from now on- 
+Trainer: and remember, modern solutions require modern solutions?
+Trainer: Uhhh whatever, just duckduckgo it if stuck (you know what you to do if a hint is not enough)..
+Trainer: So goodluck...
 => END

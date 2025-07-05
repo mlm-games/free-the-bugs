@@ -34,6 +34,10 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://dsabiul3mq2el"
+
 [input]
 
 toggle_fullscreen={

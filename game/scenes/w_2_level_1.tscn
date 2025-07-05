@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc5vpi2let3bd"]
+
+[ext_resource type="PackedScene" uid="uid://duywdkq0tcnra" path="res://game/scenes/base_level.tscn" id="1_cnpcq"]
+[ext_resource type="FontFile" uid="uid://bjg5uvy74d1e8" path="res://assets/font/Fira_Code_v6.2/woff/FiraCode-VF.woff" id="2_85dn2"]
+
+[node name="W1Level3" instance=ExtResource("1_cnpcq")]
+edited_once_tip = "[wave]I've heard comparing and == are synonymous..."
+edited_once_after_hint_tip = "Looks like it is comparing improperly in [b][i]line 4[/b][/i]."
+output_string = "Health is full"
+
+[node name="CodeArea" parent="." index="0"]
+text = "class Hi {
+	void main() {
+		int health = \"100\";
+		if (health = 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+
+[node name="AnsArea" parent="." index="1"]
+text = "class Hi {
+	void main() {
+		int health = \"100\";
+		if (health == 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+
+[node name="TipLabel" parent="." index="3"]
+text = "[wave]Looks very deceiving..."
+
+[node name="OutputArea" parent="." index="4"]
+theme_override_fonts/font = ExtResource("2_85dn2")

@@ -2,6 +2,7 @@ extends Control
 
 const HINT_PREFIX = "Hint"
 
+var edit_count := 0
 var edited_once := false
 @export var edited_once_tip : String
 var hint_clicked := false
@@ -10,6 +11,9 @@ var edited_once_after_hint := false
 @export var output_string : String
 
 enum State {DIALOGUE, EDITING, COMPLETED}
+@export var show_dialogue_for_level := true
+@export var no_of_edits_to_show_next_tip: int = 3
+@export var no_of_edits_to_show_next_tip_after_hint := 6
 
 @export var hint_dialogue : DialogueResource
 @export var level_dialogue : DialogueResource
@@ -27,11 +31,11 @@ enum State {DIALOGUE, EDITING, COMPLETED}
 func  _ready() -> void:
 	code_area.text_changed.connect(_on_code_changed)
 	hint_button.pressed.connect(func():
-		DialogueManager.show_dialogue_balloon(hint_dialogue, level_name + HINT_PREFIX)
+		if show_dialogue_for_level: DialogueManager.show_dialogue_balloon(hint_dialogue, level_name + HINT_PREFIX)
 		hint_clicked = true
 		)
 	
-	DialogueManager.show_dialogue_balloon(level_dialogue, level_name + "Start")
+	if show_dialogue_for_level: DialogueManager.show_dialogue_balloon(level_dialogue, level_name + "Start")
 	
 	UIEffects.typewriter_effect(%TipLabel)
 
@@ -42,15 +46,17 @@ func _on_code_changed():
 		UIEffects.typewriter_effect(%TipLabel)
 	
 	if hint_clicked and not edited_once_after_hint:
+		edited_once_after_hint = true
 		%TipLabel.text = edited_once_after_hint_tip
 		UIEffects.typewriter_effect(%TipLabel)
 	
 	
 	if code_area.text == ans_area.text:
-		if %OutputArea.visible: %OutputArea.text = output_string
+		%OutputArea.text = output_string
 		print("Level completed")
-		DialogueManager.show_dialogue_balloon(level_dialogue, level_name + "End")
-		await DialogueManager.dialogue_ended
+		if show_dialogue_for_level:
+			DialogueManager.show_dialogue_balloon(level_dialogue, level_name + "End")
+			await DialogueManager.dialogue_ended
 		Transitions.change_scene_with_transition_packed(next_scene)
 	
 	

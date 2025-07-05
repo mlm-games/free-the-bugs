@@ -9,19 +9,27 @@ Trainer: Here are some choices. []
 - Review hint? => W1Level1Hint
 - Exit hint => HintEndSnippet
 
-
 ~ W1Level2Hint
-Trainer: Every complete command in Java must end with a semicolon (;). It's like the period at the end of a sentence.
+Trainer: Hmm looks like the variable [i]health[/i] is an integer (int), but is taking a string as input instead....
 Trainer: Here are some choices.
-- What if it ends with a { ?
-	Trainer: That's one of the only cases where it doesn't end with a semicolon. But it would (most definitely) end with another } somewhere else.
-- What if i use a backslash at the end of a line?
-	Trainer: It doesn't look like there is a rookie here, [wave]did you reallly need the hint?...
-	Trainer: (We can't start with all that, cmon...)
-- Review hint? => W1Level1Hint
+- More context?
+	Trainer: As per the rulebooks, a variable which is a string has content that is warpped around [i]""[/i].
+	Trainer: And a int, well, its a just a number (without decimals), so...
+	Trainer: I think you get it, so please proceed...
+- Why does it matter? Just convert it [wait=0.05]duh..
+	Trainer: Sorry, Mr/Mrs "big brain", the computer isn't as smart as you...
+	Trainer: Just kidding (if you are genuinely a rookie), but you could say it doesn't do it automatically to prevent assumptions (if you had actually wanted it to a string but it got converted and then you would get confused for eons if it was a [wave]big program[/wave])
+- Review hint? => W1Level2Hint
 - Exit hint => HintEndSnippet
 
-=> END
+~ W1Level3Hint
+Trainer: We need to make choices in life, It's inevitable... 
+Trainer: Similarly making choices in code is handled by the [i]if else[/i] statements.
+Trainer: Comparing in the statements is done via ==, and the problem does it wrong.
+Trainer: It should be pretty obvious via the tip [speed=1.2](and running outta time!)[/speed], so yeah[wait=0.05] no choices for you.
+- Review hint? => W1Level3Hint
+- Exit hint => HintEndSnippet
+
 
 ~ HintEndSnippet
 %10 Trainer: Okay, now back to solving.

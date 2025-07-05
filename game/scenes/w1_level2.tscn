@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfx5q5jcpslsh"]
+[gd_scene load_steps=7 format=3 uid="uid://dfx5q5jcpslsh"]
 
-[ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/w1_level1.gd" id="1_6wlsq"]
+[ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/base_level.gd" id="1_6wlsq"]
 [ext_resource type="Resource" uid="uid://br0g15mlkqp0p" path="res://game/resources/hints.dialogue" id="2_o7d8x"]
 [ext_resource type="Resource" uid="uid://bcyitiwfyenvi" path="res://game/resources/context.dialogue" id="3_xnt2t"]
 [ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="4_eikdp"]
+[ext_resource type="FontFile" uid="uid://dust7b2j2ou7" path="res://assets/font/Fira_Code_v6.2/ttf/FiraCode-Retina.ttf" id="4_o7d8x"]
+[ext_resource type="PackedScene" uid="uid://bangw5bihar0g" path="res://game/scenes/w_1_level_3.tscn" id="4_xnt2t"]
 
 [node name="W1Level2" type="Control"]
 layout_mode = 3
@@ -13,8 +15,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6wlsq")
+edited_once_tip = "Hmm, the \"double quotes\" do look awfully sus here..."
+edited_once_after_hint_tip = "The mistake is again present in [wave][b]line 3[/b][/wave]"
+output_string = "100"
 hint_dialogue = ExtResource("2_o7d8x")
 level_dialogue = ExtResource("3_xnt2t")
+next_scene = ExtResource("4_xnt2t")
 
 [node name="CodeArea" type="CodeEdit" parent="."]
 unique_name_in_owner = true
@@ -26,6 +32,7 @@ anchor_right = 0.6510417
 anchor_bottom = 0.654321
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_o7d8x")
 text = "class Hi {
 	void main() {
 		int health = \"100\";
@@ -91,5 +98,6 @@ offset_left = 798.0
 offset_top = 43.0
 offset_right = 1025.0
 offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("4_o7d8x")
 placeholder_text = "Output prints here!"
 editable = false
