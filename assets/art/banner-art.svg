@@ -11,6 +11,7 @@
    sodipodi:docname="banner-art.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -23,39 +24,243 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="0.59938348"
-     inkscape:cx="784.13906"
-     inkscape:cy="389.56696"
+     inkscape:zoom="0.42382813"
+     inkscape:cx="738.5069"
+     inkscape:cy="534.41474"
      inkscape:window-width="1536"
      inkscape:window-height="902"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:lockguides="false" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient21"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#145580;stop-opacity:1;"
+         offset="0"
+         id="stop21" />
+      <stop
+         style="stop-color:#14556c;stop-opacity:1;"
+         offset="1"
+         id="stop22" />
+    </linearGradient>
+    <linearGradient
+       id="swatch15"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ebecff;stop-opacity:1;"
+         offset="0"
+         id="stop16" />
+    </linearGradient>
     <rect
        x="814.16991"
        y="91.760954"
        width="620.63772"
        height="140.144"
        id="rect1" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient21"
+       id="radialGradient22"
+       cx="987.68157"
+       cy="392.06954"
+       fx="987.68157"
+       fy="392.06954"
+       r="1034.5977"
+       gradientTransform="matrix(1,0,0,0.42108051,0,226.9767)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#2e2f41;fill-opacity:1;stroke:#000000;stroke-width:0.403;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       style="fill:url(#radialGradient22);fill-opacity:1;stroke:#000000;stroke-width:0.403;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
        id="rect2"
        width="2068.7925"
        height="870.8949"
        x="-46.714668"
        y="-43.377907"
        ry="3.5023041" />
+    <g
+       inkscape:label="GridCartesian:X16:Y16"
+       transform="matrix(3.4929588,0,0,3.4929588,-76.968247,-903.95482)"
+       id="g125"
+       style="display:inline;opacity:0.159;mix-blend-mode:saturation">
+      <g
+         inkscape:label="MajorXGridlines"
+         id="g109">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 37.7953,0 V 604.724"
+           inkscape:label="MajorXDiv1"
+           id="path95" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 75.5906,0 V 604.724"
+           inkscape:label="MajorXDiv2"
+           id="path96" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 113.386,0 V 604.724"
+           inkscape:label="MajorXDiv3"
+           id="path97" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 151.181,0 V 604.724"
+           inkscape:label="MajorXDiv4"
+           id="path98" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 188.976,0 V 604.724"
+           inkscape:label="MajorXDiv5"
+           id="path99" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 226.772,0 V 604.724"
+           inkscape:label="MajorXDiv6"
+           id="path100" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 264.567,0 V 604.724"
+           inkscape:label="MajorXDiv7"
+           id="path101" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 302.362,0 V 604.724"
+           inkscape:label="MajorXDiv8"
+           id="path102" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 340.157,0 V 604.724"
+           inkscape:label="MajorXDiv9"
+           id="path103" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 377.953,0 V 604.724"
+           inkscape:label="MajorXDiv10"
+           id="path104" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 415.748,0 V 604.724"
+           inkscape:label="MajorXDiv11"
+           id="path105" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 453.543,0 V 604.724"
+           inkscape:label="MajorXDiv12"
+           id="path106" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 491.339,0 V 604.724"
+           inkscape:label="MajorXDiv13"
+           id="path107" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 529.134,0 V 604.724"
+           inkscape:label="MajorXDiv14"
+           id="path108" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 566.929,0 V 604.724"
+           inkscape:label="MajorXDiv15"
+           id="path109" />
+      </g>
+      <g
+         inkscape:label="MajorYGridlines"
+         id="g124">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,37.7953 H 604.724"
+           inkscape:label="MajorYDiv1"
+           id="path110" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,75.5906 H 604.724"
+           inkscape:label="MajorYDiv2"
+           id="path111" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,113.386 H 604.724"
+           inkscape:label="MajorYDiv3"
+           id="path112" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,151.181 H 604.724"
+           inkscape:label="MajorYDiv4"
+           id="path113" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,188.976 H 604.724"
+           inkscape:label="MajorYDiv5"
+           id="path114" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,226.772 H 604.724"
+           inkscape:label="MajorYDiv6"
+           id="path115" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,264.567 H 604.724"
+           inkscape:label="MajorYDiv7"
+           id="path116" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,302.362 H 604.724"
+           inkscape:label="MajorYDiv8"
+           id="path117" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,340.157 H 604.724"
+           inkscape:label="MajorYDiv9"
+           id="path118" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,377.953 H 604.724"
+           inkscape:label="MajorYDiv10"
+           id="path119" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,415.748 H 604.724"
+           inkscape:label="MajorYDiv11"
+           id="path120" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,453.543 H 604.724"
+           inkscape:label="MajorYDiv12"
+           id="path121" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,491.339 H 604.724"
+           inkscape:label="MajorYDiv13"
+           id="path122" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,529.134 H 604.724"
+           inkscape:label="MajorYDiv14"
+           id="path123" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1"
+           d="M 0,566.929 H 604.724"
+           inkscape:label="MajorYDiv15"
+           id="path124" />
+      </g>
+      <rect
+         x="0"
+         y="0"
+         width="604.72443"
+         height="604.72443"
+         style="fill:none;stroke:#000000;stroke-width:1"
+         inkscape:label="Border"
+         id="rect124" />
+    </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:115.262px;line-height:0px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#62a2cc;stroke:#bedeff;stroke-width:4.0009207;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;fill-opacity:1;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:115.262px;line-height:0px;font-family:Fredoka;-inkscape-font-specification:'Fredoka, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#00ffff;stroke:none;stroke-width:5.24949468;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;fill-opacity:1;stroke-opacity:1"
        x="596.23309"
        y="169.33177"
        id="text2"><tspan
@@ -63,15 +268,15 @@
          x="596.23309"
          y="169.33177"
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:115.262px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4.0009207;fill:#62a2cc;fill-opacity:1;stroke:#bedeff;stroke-opacity:1">Free the Bugs</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:115.26200104px;font-family:Fredoka;-inkscape-font-specification:'Fredoka, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:5.24949468;fill:#00ffff;fill-opacity:1;stroke:none;stroke-opacity:1">Free the Bugs</tspan></text>
     <rect
-       style="fill:#333333;fill-opacity:1;stroke:#8080a2;stroke-width:4.94458;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;stroke-opacity:1"
+       style="fill:#333333;fill-opacity:1;stroke:#8080a2;stroke-width:4.94458;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:fill markers stroke"
        id="rect3"
        width="1373.8022"
        height="271.01273"
        x="273.09888"
        y="369.21857"
-       ry="115.84015" />
+       ry="52.135082" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.3333px;line-height:0px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ebecff;fill-opacity:1;stroke:#80802d;stroke-width:0.810544;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;opacity:0.112;stroke-opacity:1"
