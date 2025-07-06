@@ -1,1 +1,1 @@
-- add some sounds, add w2 level3, use bolder font by @mlm-studios
+- replace the placeholders (most of them) by @mlm-studios

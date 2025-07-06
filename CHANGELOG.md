@@ -1,3 +1,8 @@
+## v0.4.2
+
+- replace the placeholders (most of them) by @mlm-studios
+
+
 # Changelog
 
 ## v0.4.1
