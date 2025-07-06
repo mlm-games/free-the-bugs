@@ -1,3 +1,8 @@
+## v0.4.6
+
+- use bg music, fix screen stretch by @mlm-studios
+
+
 ## v0.4.3
 
 - Update export_releases.yml by @ragebreaker
