@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyqm36mbv3146"]
+
+[ext_resource type="Shader" uid="uid://cl436onb522s7" path="res://seamless.gdshader" id="1_1db1t"]
+[ext_resource type="Texture2D" uid="uid://bt2qx8l3hgul0" path="res://assets/art/bulb.svg" id="2_g7wmv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7wmv"]
+shader = ExtResource("1_1db1t")
+shader_parameter/speed = -0.0650000000023283
+shader_parameter/alpha = 0.07499999999708962
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+shader_parameter/wave_amplitude = 0.25
+shader_parameter/wave_frequency = 5.0
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/pixel_snap = false
+shader_parameter/brightness = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_g7wmv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g7wmv")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
