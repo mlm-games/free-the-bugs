@@ -29,6 +29,7 @@ SettingsManager="*res://addons/basic_settings_menu/settings_manager.gd"
 SettingsApplier="*res://addons/basic_settings_menu/settings_applier.gd"
 PauseMenu="*res://addons/basic_settings_menu/pause_menu.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Background="*res://game/scenes/background.tscn"
 
 [dialogue_manager]
 
