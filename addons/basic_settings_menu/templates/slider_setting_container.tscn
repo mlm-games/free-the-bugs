@@ -19,4 +19,5 @@ size_flags_stretch_ratio = 0.75
 [node name="InteractablePartOfSetting" type="HSlider" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-rounded = true
+max_value = 1.0
+step = 0.05000000000291038

@@ -8,6 +8,8 @@ func _ready() -> void:
 	%SettingsButton.pressed.connect(add_child.bind(C.Scenes.SettingsScene.instantiate()))
 	%ExitButton.pressed.connect(_on_exit_button_pressed)
 	%CreditsButton.pressed.connect(Transitions.change_scene_with_transition_packed.bind(C.Scenes.CreditsScene))
+	
+	AudioM
 
 
 

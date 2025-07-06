@@ -35,6 +35,10 @@ Background="*res://game/scenes/background.tscn"
 
 runtime/balloon_path="res://game/resources/balloon.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")

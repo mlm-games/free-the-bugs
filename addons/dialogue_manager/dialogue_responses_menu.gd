@@ -41,7 +41,7 @@ var responses: Array = []:
 					item = response_template.duplicate(DUPLICATE_GROUPS | DUPLICATE_SCRIPTS | DUPLICATE_SIGNALS)
 					item.show()
 				else:
-					item = Button.new()
+					item = AnimButton.new()
 				item.name = "Response%d" % get_child_count()
 				if not response.is_allowed:
 					item.name = item.name + &"Disallowed"
