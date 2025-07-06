@@ -18,7 +18,7 @@ text = "class Hi {
 
 	void main() {
 		HealthProvider hb = new HealthProvider();
-		if (health = 100) {
+		if (health == 100) {
 			print(\"Health is full\");
 		}
 	}
@@ -32,17 +32,14 @@ text = "class Hi {
 
 	void main() {
 		HealthProvider hb = new HealthProvider();
-		if (hb.health = 100) {
+		if (hb.health == 100) {
 			print(\"Health is full\");
 		}
 	}
 }"
 
-[node name="HintButton" parent="." index="2"]
-visible = false
-
 [node name="TipLabel" parent="." index="3"]
-text = "[wave]Everything in Java is an object..."
+text = "[wave]Everything in Gava is an object..."
 
 [node name="OutputArea" parent="." index="4"]
 theme_override_fonts/font = ExtResource("2_85dn2")

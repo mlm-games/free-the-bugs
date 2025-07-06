@@ -15,7 +15,9 @@ text = "import java.util.Scanner
 class Hi {
 	void main() {
 		Scanner sc = new Scanner(System.in);
-		if (hb.health = 100) {
+		int health = sc.nextInt();
+
+		if (health == 100) {
 			print(\"Health is full\");
 		}
 	}

@@ -17,7 +17,7 @@ text = "class Hi {
 
 	void main() {
 		healthProvider hb = new HealthProvider();
-		if (hb.health = 100) {
+		if (hb.health == 100) {
 			print(\"Health is full\");
 		}
 	}
@@ -31,7 +31,7 @@ text = "class Hi {
 
 	void main() {
 		HealthProvider hb = new HealthProvider();
-		if (hb.health = 100) {
+		if (hb.health == 100) {
 			print(\"Health is full\");
 		}
 	}
@@ -41,7 +41,7 @@ text = "class Hi {
 visible = false
 
 [node name="TipLabel" parent="." index="3"]
-text = "[wave]Something might be case sensitive..."
+text = "[wave]Gava might be case sensitive... (No it is case-sensitive)"
 
 [node name="OutputArea" parent="." index="4"]
 theme_override_fonts/font = ExtResource("2_8cbcu")

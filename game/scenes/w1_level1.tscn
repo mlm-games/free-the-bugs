@@ -100,5 +100,5 @@ offset_top = 43.0
 offset_right = 1025.0
 offset_bottom = 408.0
 theme_override_fonts/font = ExtResource("5_etmqy")
-placeholder_text = "Output prints here!"
+placeholder_text = "Output is shown here!"
 editable = false

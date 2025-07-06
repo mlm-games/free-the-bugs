@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg", "res://
 
 [gui]
 
+theme/custom="uid://egwud2447qqi"
 theme/custom_font="uid://dsabiul3mq2el"
 
 [input]
@@ -65,4 +66,4 @@ locale/translations_pot_files=PackedStringArray("res://game/resources/context.di
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.0823529, 0.0941176, 0.160784, 1)
+environment/defaults/default_clear_color=Color(0.3237874, 0.5255846, 0.21556534, 1)
