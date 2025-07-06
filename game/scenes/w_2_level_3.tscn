@@ -4,8 +4,8 @@
 [ext_resource type="FontFile" uid="uid://bjg5uvy74d1e8" path="res://assets/font/Fira_Code_v6.2/woff/FiraCode-VF.woff" id="2_i1mxp"]
 
 [node name="W2Level2" instance=ExtResource("1_oucdu")]
-edited_once_tip = "[wave] Is there an object [i][b]hb[/b][/i] being created?"
-edited_once_after_hint_tip = "Looks like the issue is present in [b][i]line 7[/b][/i]."
+edited_once_tip = "[wave] Hmm, the health is being compared again? "
+edited_once_after_hint_tip = "Looks like the issue is present in [b][i]line 9[/b][/i]."
 output_string = "Health is full"
 show_dialogue_for_level = false
 
@@ -15,23 +15,23 @@ text = "import java.util.Scanner
 class Hi {
 	void main() {
 		Scanner sc = new Scanner(System.in);
-		int health = sc.nextInt();
+		int health = sc.nextInt(); //Lets say user input is 100
 
-		if (health == 100) {
+		if (sc.health == 100) {
 			print(\"Health is full\");
 		}
 	}
 }"
 
 [node name="AnsArea" parent="." index="1"]
-text = "class Hi {
-	class HealthProvider {
-		int health = 100;
-	}
+text = "import java.util.Scanner
 
+class Hi {
 	void main() {
-		HealthProvider hb = new HealthProvider();
-		if (hb.health = 100) {
+		Scanner sc = new Scanner(System.in);
+		int health = sc.nextInt(); //Lets say user input is 100
+
+		if (health == 100) {
 			print(\"Health is full\");
 		}
 	}

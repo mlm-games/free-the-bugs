@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cimlbk06a17yr"]
+[gd_scene load_steps=4 format=3 uid="uid://cimlbk06a17yr"]
 
 [ext_resource type="PackedScene" uid="uid://duywdkq0tcnra" path="res://game/scenes/base_level.tscn" id="1_7pcnh"]
 [ext_resource type="FontFile" uid="uid://bjg5uvy74d1e8" path="res://assets/font/Fira_Code_v6.2/woff/FiraCode-VF.woff" id="2_8cbcu"]
+[ext_resource type="PackedScene" uid="uid://fd2fa384lfdb" path="res://game/scenes/w_2_level_3.tscn" id="2_veh3d"]
 
 [node name="W2Level2" instance=ExtResource("1_7pcnh")]
 edited_once_tip = "[wave] Is there an object [i][b]hb[/b][/i] being created?"
 edited_once_after_hint_tip = "Looks like the issue is present in [b][i]line 7[/b][/i]."
 output_string = "Health is full"
 show_dialogue_for_level = false
+next_scene = ExtResource("2_veh3d")
 
 [node name="CodeArea" parent="." index="0"]
 text = "class Hi {
@@ -18,7 +20,7 @@ text = "class Hi {
 	void main() {
 		healthProvider hb = new HealthProvider();
 		if (hb.health == 100) {
-			print(\"Health is full\");
+			print(\"Health is full!\");
 		}
 	}
 }"
@@ -32,7 +34,7 @@ text = "class Hi {
 	void main() {
 		HealthProvider hb = new HealthProvider();
 		if (hb.health == 100) {
-			print(\"Health is full\");
+			print(\"Health is full!\");
 		}
 	}
 }"

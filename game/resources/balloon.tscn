@@ -65,7 +65,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Dialogue..."
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -83,7 +83,6 @@ size_flags_vertical = 8
 theme_override_constants/separation = 2
 alignment = 1
 script = ExtResource("3_72ixx")
-response_template = NodePath("")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
 layout_mode = 2

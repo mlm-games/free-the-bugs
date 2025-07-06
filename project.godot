@@ -42,7 +42,7 @@ enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg", "res://
 [gui]
 
 theme/custom="res://assets/theme/dracula_intellij_based.tres"
-theme/custom_font="uid://dsabiul3mq2el"
+theme/custom_font="uid://bmrr48g0p6wor"
 
 [input]
 

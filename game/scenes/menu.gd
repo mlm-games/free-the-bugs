@@ -4,14 +4,11 @@ extends Control
 func _ready() -> void:
 	%PlayButton.grab_focus()
 	
-	%PlayButton.pressed.connect(_on_play_button_pressed)
-	%SettingsButton.pressed.connect(Transitions.change_scene_with_transition.bind("uid://dp42fom7cc3n0"))
+	%PlayButton.pressed.connect(Transitions.change_scene_with_transition_packed.bind(C.Scenes.FirstLevelScene))
+	%SettingsButton.pressed.connect(add_child.bind(C.Scenes.SettingsScene.instantiate()))
 	%ExitButton.pressed.connect(_on_exit_button_pressed)
-	%CreditsButton.pressed.connect(Transitions.change_scene_with_transition.bind("uid://bq0gelfcjnqvg"))
+	%CreditsButton.pressed.connect(Transitions.change_scene_with_transition_packed.bind(C.Scenes.CreditsScene))
 
-func _on_play_button_pressed() -> void:
-	Transitions.change_scene_with_transition_packed(preload("uid://b1puye38hm3ge"))
-	self.hide()
 
 
 func _on_exit_button_pressed() -> void:

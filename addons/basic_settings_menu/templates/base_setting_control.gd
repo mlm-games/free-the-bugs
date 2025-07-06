@@ -15,12 +15,7 @@ var _menu_controller: SettingsMenu
 
 
 func _ready() -> void:
-	_sfx_player = AudioStreamPlayer.new()
-	_sfx_player.stream = preload("res://addons/basic_settings_menu/settings-test-sound.ogg")
-	_sfx_player.bus = &"Sfx"
-	add_child(_sfx_player)
-
-	interactive_element.focus_entered.connect(func(): _sfx_player.play())
+	interactive_element.focus_entered.connect(UiAudioM.play_hover_sound)
 	mouse_entered.connect(interactive_element.grab_focus)
 
 func _on_focus_entered() -> void:

@@ -55,6 +55,7 @@ var mutation_cooldown: Timer = Timer.new()
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	dialogue_label.spoke.connect(func(_1, _2, _3): UiAudioM.play_ui_sound(preload("uid://cq3hqx8vc7b0h")))
 
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():

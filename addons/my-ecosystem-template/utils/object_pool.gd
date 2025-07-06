@@ -63,15 +63,16 @@ func get_object() -> Node:
 	
 	if _available.is_empty():
 		if _active.size() >= _max_size:
-			push_warning("ObjectPool: Max size reached. Cannot create new object.")
-			return null
+			push_warning("ObjectPool: Max size reached. Deleting an old object.")
+			#return null
+			_release_object_internal(_active.pop_back())
 		obj = _pool_scene.instantiate()
 		add_child(obj)
 	else:
 		obj = _available.pop_front()
 	
 	_active.append(obj)
-	obj.visible = true
+	if obj.has_method("show"): obj.visible = true
 	if obj.has_method("set_process"): obj.set_process(true)
 	if obj.has_method("set_physics_process"): obj.set_physics_process(true)
 	if obj.has_method("_on_spawned_from_pool"): obj._on_spawned_from_pool()

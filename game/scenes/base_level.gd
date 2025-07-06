@@ -41,6 +41,7 @@ func  _ready() -> void:
 
 func _on_code_changed():
 	edit_count += 1
+	UiAudioM.play_ui_sound(preload("uid://cq3hqx8vc7b0h"))
 	if not edited_once:
 		edited_once = true
 		%TipLabel.text = edited_once_tip

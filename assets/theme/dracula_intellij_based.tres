@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=30 format=3 uid="uid://dyk0ij2khbvg8"]
+[gd_resource type="Theme" load_steps=28 format=3 uid="uid://dyk0ij2khbvg8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_disabled"]
 bg_color = Color(0.231, 0.259, 0.322, 0.6)
@@ -61,38 +61,6 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_code_edit_focus"]
-content_margin_left = 20.0
-content_margin_top = 16.0
-content_margin_right = 20.0
-content_margin_bottom = 16.0
-bg_color = Color(0.165, 0.125, 0.231, 0.98)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 0.631, 0.278, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_code_edit_normal"]
-content_margin_left = 20.0
-content_margin_top = 16.0
-content_margin_right = 20.0
-content_margin_bottom = 16.0
-bg_color = Color(0.165, 0.125, 0.231, 0.98)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.467, 0.369, 0.651, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_grabber"]
 bg_color = Color(0.529, 0.812, 0.922, 1)
@@ -406,9 +374,6 @@ CodeEdit/constants/completion_scroll_width = 8
 CodeEdit/constants/line_spacing = 6
 CodeEdit/font_sizes/font_size = 18
 CodeEdit/styles/completion = SubResource("StyleBoxFlat_5fenf")
-CodeEdit/styles/focus = SubResource("StyleBoxFlat_code_edit_focus")
-CodeEdit/styles/normal = SubResource("StyleBoxFlat_code_edit_normal")
-CodeEdit/styles/read_only = SubResource("StyleBoxFlat_code_edit_normal")
 HScrollBar/styles/grabber = SubResource("StyleBoxFlat_slider_grabber")
 HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_slider_grabber_highlight")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_button_pressed")
