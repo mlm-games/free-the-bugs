@@ -1,3 +1,8 @@
+## v0.4.7
+
+- tried improving but not good enough (fine for some practice) by @mlm-studios
+
+
 ## v0.4.6
 
 - use bg music, fix screen stretch by @mlm-studios
