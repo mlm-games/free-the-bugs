@@ -1,3 +1,8 @@
+## v0.5.0
+
+- add an endscreen and fix w3 discrepancies by @mlm-studios
+
+
 ## v0.4.7
 
 - tried improving but not good enough (fine for some practice) by @mlm-studios
