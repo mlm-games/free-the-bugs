@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal screen_covered
 
-#const CIRCLE_SHADER = preload("uid://dnms5hsmipkyv")
+#const CIRCLE_SHADER = preload("")
 
 @onready var transition_player: AnimationPlayer = $TransitionRect/TransitionPlayer
 @onready var transition_rect : ColorRect = $TransitionRect
@@ -33,26 +33,23 @@ func transition(anim_name: StringName = "fadeToBlack", single_transition_only: b
 			single_transition = true
 	match anim_name:
 			"fadeToBlack":
-					transition_player.speed_scale = speed_scale
 					transition_rect.material = ShaderMaterial.new()
 					transition_rect.visible = true
 					transition_player.play(anim_name)
 			"slightFlash":
-					transition_player.speed_scale = speed_scale
 					white_rect.visible = true
 					transition_player.play(anim_name)
 			"circleIn":
-					transition_player.speed_scale = speed_scale
 					#transition_rect.material.shader = CIRCLE_SHADER
 					transition_rect.modulate = Color.WHITE
 					transition_rect.visible = true
 					transition_player.play(anim_name)
 			"circleOut":
-					transition_player.speed_scale = speed_scale
 					#transition_rect.material.shader = CIRCLE_SHADER
 					transition_rect.visible = true
 					transition_rect.modulate = Color.WHITE
 					transition_player.play(anim_name)
+	transition_player.speed_scale = speed_scale
 	if pop_up:
 			pass
 

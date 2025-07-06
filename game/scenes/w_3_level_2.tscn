@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://caj582mhk1t5o"]
+
+[ext_resource type="PackedScene" uid="uid://duywdkq0tcnra" path="res://game/scenes/base_level.tscn" id="1_iv3iy"]
+[ext_resource type="PackedScene" uid="uid://p6ra1v88b32d" path="res://game/scenes/w_3_level_3.tscn" id="2_4cpbx"]
+[ext_resource type="FontFile" uid="uid://bjg5uvy74d1e8" path="res://assets/font/Fira_Code_v6.2/woff/FiraCode-VF.woff" id="2_jxqgf"]
+
+[node name="W3Level2" instance=ExtResource("1_iv3iy")]
+edited_once_tip = "[wave] Constructors..."
+edited_once_after_hint_tip = "Its related to [wave] the creation of player"
+output_string = "Health is at 100%"
+show_dialogue_for_level = false
+next_scene = ExtResource("2_4cpbx")
+
+[node name="CodeArea" parent="." index="0"]
+text = "class Hi {
+	class Player {
+			int health;
+			Player(int health) {
+				this.health = health;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player();
+		String percent = p1.calculateHealthPercentage();
+		if (p1.health == 100) {
+			println(\"Health is at \" + percent);
+		}
+	}
+}"
+
+[node name="AnsArea" parent="." index="1"]
+text = "class Hi {
+	class Player {
+			int health;
+			Player(int health) {
+				this.health = health;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player(100);
+		String percent = p1.calculateHealthPercentage();
+		if (p1.health == 100) {
+			println(\"Health is at \" + percent);
+		}
+	}
+}"
+scroll_vertical = 5.0
+
+[node name="HintButton" parent="." index="2"]
+visible = false
+
+[node name="TipLabel" parent="." index="3"]
+text = "[wave] You want a hint? Here it is... Its not related to [i]this"
+
+[node name="OutputArea" parent="." index="4"]
+theme_override_fonts/font = ExtResource("2_jxqgf")

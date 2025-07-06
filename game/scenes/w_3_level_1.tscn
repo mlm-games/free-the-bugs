@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://71tm8e0krrlv"]
+
+[ext_resource type="PackedScene" uid="uid://duywdkq0tcnra" path="res://game/scenes/base_level.tscn" id="1_1sj5n"]
+[ext_resource type="FontFile" uid="uid://bjg5uvy74d1e8" path="res://assets/font/Fira_Code_v6.2/woff/FiraCode-VF.woff" id="2_11ls5"]
+[ext_resource type="PackedScene" uid="uid://caj582mhk1t5o" path="res://game/scenes/w_3_level_2.tscn" id="2_g0oqt"]
+
+[node name="W3Level1" instance=ExtResource("1_1sj5n")]
+edited_once_tip = "[wave] Very hard ones here"
+output_string = "Health is at 100%"
+show_dialogue_for_level = false
+next_scene = ExtResource("2_g0oqt")
+
+[node name="CodeArea" parent="." index="0"]
+text = "class Hi {
+	class Player {
+			int health;
+			void initializeHealth() {
+				health = 100;
+			}
+			void calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player();
+		p1.initializeHealth();
+		String percent = p1.calculateHealthPercentage();
+		println(\"Health is at \" + percent);
+	}
+}"
+
+[node name="AnsArea" parent="." index="1"]
+text = "class Hi {
+	class Player {
+			int health;
+			void initializeHealth() {
+				health = 100;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player();
+		p1.initializeHealth();
+		String percent = p1.calculateHealthPercentage();
+		println(\"Health is at \" + percent);
+	}
+}"
+
+[node name="HintButton" parent="." index="2"]
+visible = false
+
+[node name="TipLabel" parent="." index="3"]
+text = ""
+
+[node name="OutputArea" parent="." index="4"]
+theme_override_fonts/font = ExtResource("2_11ls5")

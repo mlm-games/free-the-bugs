@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://fd2fa384lfdb"]
+[gd_scene load_steps=4 format=3 uid="uid://fd2fa384lfdb"]
 
 [ext_resource type="PackedScene" uid="uid://duywdkq0tcnra" path="res://game/scenes/base_level.tscn" id="1_oucdu"]
 [ext_resource type="FontFile" uid="uid://bjg5uvy74d1e8" path="res://assets/font/Fira_Code_v6.2/woff/FiraCode-VF.woff" id="2_i1mxp"]
+[ext_resource type="PackedScene" uid="uid://71tm8e0krrlv" path="res://game/scenes/w_3_level_1.tscn" id="2_ki5bn"]
 
-[node name="W2Level2" instance=ExtResource("1_oucdu")]
+[node name="W2Level3" instance=ExtResource("1_oucdu")]
 edited_once_tip = "[wave] Hmm, the health is being compared again? "
 edited_once_after_hint_tip = "Looks like the issue is present in [b][i]line 9[/b][/i]."
 output_string = "Health is full"
 show_dialogue_for_level = false
+next_scene = ExtResource("2_ki5bn")
 
 [node name="CodeArea" parent="." index="0"]
 text = "import java.util.Scanner
