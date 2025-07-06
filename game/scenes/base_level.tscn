@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://duywdkq0tcnra"]
+[gd_scene load_steps=7 format=3 uid="uid://duywdkq0tcnra"]
 
 [ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/base_level.gd" id="1_cuxyw"]
 [ext_resource type="Resource" uid="uid://br0g15mlkqp0p" path="res://game/resources/hints.dialogue" id="2_n88w1"]
 [ext_resource type="Resource" uid="uid://bcyitiwfyenvi" path="res://game/resources/context.dialogue" id="3_5df0e"]
 [ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="4_fsn53"]
 [ext_resource type="FontFile" uid="uid://dust7b2j2ou7" path="res://assets/font/Fira_Code_v6.2/ttf/FiraCode-Retina.ttf" id="4_n88w1"]
+[ext_resource type="Texture2D" uid="uid://bt2qx8l3hgul0" path="res://assets/art/bulb.svg" id="5_5df0e"]
 
 [node name="W1Level0" type="Control"]
 layout_mode = 3
@@ -71,6 +72,9 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 4
 text = "Hint!"
+icon = ExtResource("5_5df0e")
+icon_alignment = 1
+vertical_icon_alignment = 0
 script = ExtResource("4_fsn53")
 metadata/_custom_type_script = "uid://cmo5qw3rubish"
 
@@ -90,9 +94,9 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 784.0
-offset_top = 32.0
+offset_top = 30.0
 offset_right = 1131.0
-offset_bottom = 396.0
+offset_bottom = 394.0
 theme_override_fonts/font = ExtResource("4_n88w1")
 placeholder_text = "Output is shown here!"
 editable = false
