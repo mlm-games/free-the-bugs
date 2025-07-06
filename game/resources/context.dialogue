@@ -1,7 +1,7 @@
 ~ W1Level1Start
-Trainer: [[Hi|Hello|Howdy]], welcome to my computer of Gava.
-Trainer: (though atleast currently broken, welp...)
-Trainer: So then, Gava, is a mesmerizing little grogramming language based on the real world language of... [wait=1] 
+Trainer: [[Hi|Hello|Howdy]], welcome (yourself) to your training of Gava.
+Trainer: (though atleast currently broken, so needed some welp...)
+Trainer: So What was i saying uhhh[wait=0.2] yeah, Gava, is a mesmerizing little grogramming language based on the real world language of... [wait=1] 
 #Probably should give an introduction of a bug with the grogramming example, but too much text
 Trainer: Okay, will stop pretending like you don't know, well as you (probably might have) guessed..
 Trainer: This is a training game and there is a l000t of text. So be prepared to "read" very much. So 
@@ -37,12 +37,12 @@ Trainer: Now from the next one onwards, I'll just leave it up to you and stop my
 ~ W1Level3End
 
 Trainer: Nice,
-Trainer: [wave][[Lets move to the next one|Here comes another one|Oncoming..]]
-Trainer: You can say that you won the game here(if you're a noob in Java), and all others are just extra levels (which can be hard sometimes and do not have hints for now)
+Trainer: You can say that you won the game here (if you're a noob in Java), and all others are just extra levels (which can be hard sometimes and do not have hints for now)
 Trainer: For those who want to continue, you are on your own from now on- 
 Trainer: and remember, modern solutions require modern solutions?
 Trainer: Uhhh whatever, just duckduckgo it if stuck (you know what you to do if a hint is not enough)..
-Trainer: So goodluck...
+Trainer: So goodluck and-
+Trainer: [wave][[Lets move to the next one|Here comes another one|Next one oncoming..]]
 => END
 
 ~ W2Level1Start

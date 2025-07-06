@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cna2ssosifhpd"]
+
+[ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="1_71yso"]
+[ext_resource type="Script" uid="uid://o105748di3lu" path="res://game/scenes/menu.gd" id="1_ugwst"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ugwst")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.55
+theme_override_constants/separation = 20
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.4
+
+[node name="PlayButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play"
+script = ExtResource("1_71yso")
+metadata/_custom_type_script = "uid://cmo5qw3rubish"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+script = ExtResource("1_71yso")
+metadata/_custom_type_script = "uid://cmo5qw3rubish"
+
+[node name="CreditsButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Credits"
+script = ExtResource("1_71yso")
+metadata/_custom_type_script = "uid://cmo5qw3rubish"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+script = ExtResource("1_71yso")
+metadata/_custom_type_script = "uid://cmo5qw3rubish"
+
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 274.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[shake][font_size=50][color=purple]Free the bugs"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -8,6 +8,7 @@ Trainer: Here are some choices. []
 	Trainer: (You can't start with all that, cmon...)
 - Review hint? => W1Level1Hint
 - Exit hint => HintEndSnippet
+=> END
 
 ~ W1Level2Hint
 Trainer: Hmm looks like the variable [i]health[/i] is an integer (int), but is taking a string as input instead....
@@ -15,12 +16,13 @@ Trainer: Here are some choices.
 - More context?
 	Trainer: As per the rulebooks, a variable which is a string has content that is warpped around [i]""[/i].
 	Trainer: And a int, well, its a just a number (without decimals), so...
-	Trainer: I think you get it, so please proceed...
+	Trainer: I think you get it, so i'll let you proceed...
 - Why does it matter? Just convert it [wait=0.05]duh..
 	Trainer: Sorry, Mr/Mrs "big brain", the computer isn't as smart as you...
 	Trainer: Just kidding (if you are genuinely a rookie), but you could say it doesn't do it automatically to prevent assumptions (if you had actually wanted it to a string but it got converted and then you would get confused for eons if it was a [wave]big program[/wave])
 - Review hint? => W1Level2Hint
 - Exit hint => HintEndSnippet
+=> END
 
 ~ W1Level3Hint
 Trainer: We need to make choices in life, It's inevitable... 
@@ -29,12 +31,14 @@ Trainer: Comparing in the statements is done via ==, and the problem does it wro
 Trainer: It should be pretty obvious via the tip [speed=1.2](and running outta time!)[/speed], so yeah[wait=0.05] no choices for you.
 - Review hint? => W1Level3Hint
 - Exit hint => HintEndSnippet
+=> END
 
 ~ W2Level1Hint
 Trainer: Last hint, There are minor changes between java and (the fictional) Gava, like println used as just print.. etc.
 Trainer: If stuck somewhere, try editing the code a few times for the hint tip to show up...
 - Review hint? => W2Level1Hint
 - Exit hint => HintEndSnippet
+=> END
 
 
 ~ HintEndSnippet

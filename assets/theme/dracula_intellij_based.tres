@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=26 format=3 uid="uid://dyk0ij2khbvg8"]
+[gd_resource type="Theme" load_steps=30 format=3 uid="uid://dyk0ij2khbvg8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_disabled"]
 bg_color = Color(0.231, 0.259, 0.322, 0.6)
@@ -22,7 +22,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
-bg_color = Color(0.298, 0.686, 0.314, 1)
+bg_color = Color(0.20304063, 0.39368203, 0.38422284, 1)
 border_width_bottom = 3
 border_color = Color(0.235, 0.541, 0.247, 1)
 corner_radius_top_left = 6
@@ -31,16 +31,16 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_normal"]
-bg_color = Color(0.235, 0.541, 0.247, 1)
+bg_color = Color(0.11282426, 0.31962895, 0.26545694, 1)
 border_width_bottom = 3
-border_color = Color(0.18, 0.416, 0.192, 1)
+border_color = Color(0.18920545, 0.40196225, 0.33786675, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
-bg_color = Color(0.18, 0.416, 0.192, 1)
+bg_color = Color(0.07302934, 0.2304857, 0.20720825, 1)
 border_width_top = 2
 border_color = Color(0.141, 0.325, 0.149, 1)
 corner_radius_top_left = 6
@@ -49,6 +49,18 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_transparent"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fenf"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_code_edit_focus"]
 content_margin_left = 20.0
@@ -229,6 +241,55 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esntu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em8dr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.043407172, 0.11102367, 0.14793086, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an4bg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tooltip"]
 content_margin_left = 8.0
 content_margin_top = 4.0
@@ -344,6 +405,7 @@ CodeEdit/constants/completion_max_width = 400
 CodeEdit/constants/completion_scroll_width = 8
 CodeEdit/constants/line_spacing = 6
 CodeEdit/font_sizes/font_size = 18
+CodeEdit/styles/completion = SubResource("StyleBoxFlat_5fenf")
 CodeEdit/styles/focus = SubResource("StyleBoxFlat_code_edit_focus")
 CodeEdit/styles/normal = SubResource("StyleBoxFlat_code_edit_normal")
 CodeEdit/styles/read_only = SubResource("StyleBoxFlat_code_edit_normal")
@@ -405,6 +467,9 @@ TextEdit/colors/caret_color = Color(0.933, 0.933, 0.933, 1)
 TextEdit/colors/font_color = Color(0.933, 0.933, 0.933, 1)
 TextEdit/colors/selection_color = Color(0.239, 0.392, 0.565, 0.6)
 TextEdit/font_sizes/font_size = 18
+TextEdit/styles/focus = SubResource("StyleBoxFlat_esntu")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_em8dr")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_an4bg")
 TooltipPanel/styles/panel = SubResource("StyleBoxFlat_tooltip")
 Tree/colors/font_selected_color = Color(1, 1, 1, 1)
 Tree/styles/panel = SubResource("StyleBoxFlat_panel_secondary")
