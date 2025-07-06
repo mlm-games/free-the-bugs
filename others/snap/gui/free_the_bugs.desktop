@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=<PlaceHolderName>
-GenericName=<PlaceHolderName>
-Comment=<PlaceholderShortDesc>
-Exec=<placeholdername> %F
+Name=FreeTheBugs
+GenericName=FreeTheBugs
+Comment=A short game on fixing java bugs
+Exec=free-the-bugs %F
 Icon=${SNAP}/meta/gui/icon.png
 Terminal=false
 Type=Application

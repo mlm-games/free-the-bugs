@@ -37,7 +37,7 @@ func initialize(p_menu_controller: SettingsMenu, category: String, setting_name:
 		interactive_element when interactive_element is HSlider:
 			interactive_element.value = current_value
 			interactive_element.value_changed.connect(_on_value_changed)
-			interactive_element.value_changed.connect(func(_v): _sfx_player.play())
+			interactive_element.value_changed.connect(func(_v): UiAudioM.play_click_sound)
 		interactive_element when interactive_element is SpinBox:
 			interactive_element.value = current_value
 			interactive_element.value_changed.connect(_on_value_changed)

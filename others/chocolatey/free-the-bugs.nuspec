@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>free-the-bugs</id>
+    <version>0.4.1</version>
+    <title>FreeTheBugs</title>
+    <authors>mlmstudios</authors>
+    <projectUrl>https://github.com/mlm-games/free-the-bugs</projectUrl>
+    <licenseUrl>https://github.com/mlm-games/free-the-bugs/blob/main/LICENSE</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/mlm-games/free-the-bugs/main/icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description><PlaceHolderLongDesc></description>
+    <summary>A short game on fixing java bugs</summary>
+    <tags><PlaceHolderChocoTags></tags>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

@@ -1,7 +1,7 @@
-name: <placeholdername>
+name: free-the-bugs
 base: core22
-version: '<PlaceHolderVersion>'
-summary: <PlaceHolderShortDesc>
+version: '0.4.1'
+summary: A short game on fixing java bugs
 description: |
   <PlaceHolderLongDesc>
 
@@ -13,8 +13,8 @@ architectures:
   - build-on: arm64
 
 apps:
-  <placeholdername>:
-    command: <placeholdername>
+  free-the-bugs:
+    command: free-the-bugs
     extensions: [gnome]
     plugs:
       - home
@@ -26,10 +26,10 @@ apps:
       - desktop
       - desktop-legacy
       - unity7
-    desktop: others/snap/gui/<placeholdername>.desktop
+    desktop: others/snap/gui/free-the-bugs.desktop
 
 parts:
-  <placeholdername>:
+  free-the-bugs:
     plugin: dump
     source: ./builds/
     source-type: local
@@ -42,8 +42,8 @@ parts:
       - libpulse0
     override-build: |
       snapcraftctl build
-      chmod +x $SNAPCRAFT_PART_INSTALL/<placeholdername>
+      chmod +x $SNAPCRAFT_PART_INSTALL/free-the-bugs
 
 layout:
-  /usr/share/<placeholdername>:
-    bind: $SNAP/usr/share/<placeholdername>
+  /usr/share/free-the-bugs:
+    bind: $SNAP/usr/share/free-the-bugs
