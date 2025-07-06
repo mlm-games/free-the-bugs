@@ -30,6 +30,12 @@ Trainer: It should be pretty obvious via the tip [speed=1.2](and running outta t
 - Review hint? => W1Level3Hint
 - Exit hint => HintEndSnippet
 
+~ W2Level1Hint
+Trainer: Last hint, There are minor changes between java and (the fictional) Gava, like println used as just print.. etc.
+Trainer: If stuck somewhere, try editing the code a few times for the hint tip to show up...
+- Review hint? => W2Level1Hint
+- Exit hint => HintEndSnippet
+
 
 ~ HintEndSnippet
 %10 Trainer: Okay, now back to solving.

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://duywdkq0tcnra" path="res://game/scenes/base_level.tscn" id="1_vg0ry"]
 [ext_resource type="FontFile" uid="uid://bjg5uvy74d1e8" path="res://assets/font/Fira_Code_v6.2/woff/FiraCode-VF.woff" id="3_kmm8l"]
 
-[node name="W2Level1" instance=ExtResource("1_vg0ry")]
+[node name="W1Level3" instance=ExtResource("1_vg0ry")]
 edited_once_tip = "[wave]I've heard comparing and == are synonymous..."
 edited_once_after_hint_tip = "Looks like it is comparing improperly in [b][i]line 4[/b][/i]."
 output_string = "Health is full"

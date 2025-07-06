@@ -44,3 +44,13 @@ Trainer: and remember, modern solutions require modern solutions?
 Trainer: Uhhh whatever, just duckduckgo it if stuck (you know what you to do if a hint is not enough)..
 Trainer: So goodluck...
 => END
+
+~ W2Level1Start
+Trainer: Also, the changes might not be related to the elaborate syntax (like the missing keywords [b]public, static[/b]), but mostly structural related..
+Trainer: I had said I won't return but the dev can't handle scope creep properly unfortunately...
+=> END
+
+~ W2Level1End
+
+Trainer: Onto the next one..
+=> END

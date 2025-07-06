@@ -40,16 +40,22 @@ func  _ready() -> void:
 	UIEffects.typewriter_effect(%TipLabel)
 
 func _on_code_changed():
+	edit_count += 1
 	if not edited_once:
 		edited_once = true
 		%TipLabel.text = edited_once_tip
 		UIEffects.typewriter_effect(%TipLabel)
 	
-	if hint_clicked and not edited_once_after_hint:
+	if hint_clicked and not edited_once_after_hint and show_dialogue_for_level:
 		edited_once_after_hint = true
 		%TipLabel.text = edited_once_after_hint_tip
 		UIEffects.typewriter_effect(%TipLabel)
 	
+	if !show_dialogue_for_level:
+		if edit_count > no_of_edits_to_show_next_tip_after_hint and not edited_once_after_hint:
+			edited_once_after_hint = true
+			%TipLabel.text = edited_once_after_hint_tip
+			UIEffects.typewriter_effect(%TipLabel)
 	
 	if code_area.text == ans_area.text:
 		%OutputArea.text = output_string
