@@ -1,3 +1,8 @@
+## v0.4.3
+
+- Update export_releases.yml by @ragebreaker
+
+
 ## v0.4.2
 
 - replace the placeholders (most of them) by @mlm-studios
