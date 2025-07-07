@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://rbtdyackl55d"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_hphwi"]
+
+[resource]
+script = ExtResource("1_hphwi")
+level_id = &"W3Level1"
+initial_code = "class Hi {
+	class Player {
+			int health;
+			void initializeHealth() {
+				health = 100;
+			}
+			void calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player();
+		p1.initializeHealth();
+		String percent = p1.calculateHealthPercentage();
+		println(\"Health is at \" + percent);
+	}
+}"
+answer_code = "class Hi {
+	class Player {
+			int health;
+			void initializeHealth() {
+				health = 100;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player();
+		p1.initializeHealth();
+		String percent = p1.calculateHealthPercentage();
+		println(\"Health is at \" + percent);
+	}
+}"
+output_string = "Health is at 100%"
+first_edit_tip = "[wave] Very hard one(s)? here"
+after_hint_tip = "[wave]The\"[wave]The bug appears to be present in [i][b]line 3[/b][/i].\" bug appears to be present in [i][b]line 3[/b][/i]."
+show_dialogue = false
+show_hint_button = false
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

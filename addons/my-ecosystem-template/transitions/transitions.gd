@@ -21,12 +21,27 @@ func change_scene_with_transition(scene_path: String, anim_name: String = "fadeT
 	transition(anim_name)
 	await screen_covered
 	if !pop_up:
-			get_tree().change_scene_to_file(scene_path)
+		get_tree().change_scene_to_file(scene_path)
+	else:
+		get_tree().root.add_child(load(scene_path).instantiate())
 
 func change_scene_with_transition_packed(scene: PackedScene, anim_name: String = "fadeToBlack") -> void:
 	transition(anim_name)
 	await screen_covered
 	get_tree().change_scene_to_packed(scene)
+
+func change_scene_with_transition_instance(loaded_scene: Node, anim_name: String = "fadeToBlack", instantiate_scene_on_top:= false, delete_old_scene:= true) -> void:
+	transition(anim_name)
+	await screen_covered
+	var tree = get_tree()
+	var cur_scene = tree.current_scene
+	tree.root.add_child(loaded_scene)
+	if not instantiate_scene_on_top: tree.root.remove_child(cur_scene)
+	tree.set_current_scene(loaded_scene)
+	if delete_old_scene: cur_scene.queue_free()
+
+func instantiate_scene_on_top(scene_path: StringName):
+	get_tree().root.add_child(load(scene_path).instantiate())
 
 func transition(anim_name: StringName = "fadeToBlack", single_transition_only: bool = false, speed_scale: float = 1, pop_up: bool = false) -> void:
 	if single_transition_only:

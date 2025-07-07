@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://cl0brdjtk6cnx"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_2m7xm"]
+
+[resource]
+script = ExtResource("1_2m7xm")
+level_id = &"W1Level1"
+initial_code = "class Hi {
+	class HealthProvider {
+		int health = 100;
+	}
+
+	void main() {
+		healthProvider hb = new HealthProvider();
+		if (hb.health == 100) {
+			print(\"Health is full!\");
+		}
+	}
+}"
+answer_code = "class Hi {
+	class HealthProvider {
+		int health = 100;
+	}
+
+	void main() {
+		HealthProvider hb = new HealthProvider();
+		if (hb.health == 100) {
+			print(\"Health is full!\");
+		}
+	}
+}"
+output_string = "Health is full"
+initial_tip = "[wave]Gava might be case sensitive... (No it is case-sensitive)"
+first_edit_tip = "[wave] Is there an object [i][b]hb[/b][/i] being created?"
+after_hint_tip = "Looks like the issue is present in [b][i]line 7[/i][/b]."
+show_dialogue = false
+show_hint_button = false
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

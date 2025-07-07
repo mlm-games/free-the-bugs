@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://d1gvuu2xl0pa5"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_tjctv"]
+
+[resource]
+script = ExtResource("1_tjctv")
+level_id = &"W1Level3"
+initial_code = "class Hi {
+	void main() {
+		int health = 100;
+		if (health = 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+answer_code = "class Hi {
+	void main() {
+		int health = 100;
+		if (health == 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+output_string = "Health is full"
+initial_tip = "[wave]Looks very deceiving..."
+first_edit_tip = "[wave]I've heard comparing and == are synonymous..."
+after_hint_tip = "Looks like it is comparing improperly in [b][i]line 4[/b][/i]."
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

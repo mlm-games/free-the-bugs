@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://btsbt2qyriggs"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_qa4o4"]
+
+[resource]
+script = ExtResource("1_qa4o4")
+level_id = &"W1Level1"
+initial_code = "class Hi {
+	void main() {
+		int health = 100
+	}
+}"
+answer_code = "class Hi {
+	void main() {
+		int health = 100;
+	}
+}"
+initial_tip = "[wave]Tip: Click anywhere in the box with the code to edit!"
+first_edit_tip = "[wave]Ignore the [i]class void main[/i] part for now, thats just the boilerplate."
+after_hint_tip = "[wave]The bug appears to be present in [i][b]line 3[/b][/i]."
+show_output_area = false
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

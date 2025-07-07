@@ -1,13 +1,12 @@
 extends Control
 
-
 func _ready() -> void:
 	%PlayButton.grab_focus()
 	
-	%PlayButton.pressed.connect(Transitions.change_scene_with_transition_packed.bind(C.Scenes.FirstLevelScene))
-	%SettingsButton.pressed.connect(add_child.bind(C.Scenes.SettingsScene.instantiate()))
+	%PlayButton.pressed.connect(LevelManager.instance.start_game)
+	%SettingsButton.pressed.connect(Transitions.instantiate_scene_on_top.bind(C.SCENE_PATHS.SETTINGS_SCENE_PATH))
 	%ExitButton.pressed.connect(_on_exit_button_pressed)
-	%CreditsButton.pressed.connect(Transitions.change_scene_with_transition_packed.bind(C.Scenes.CreditsScene))
+	%CreditsButton.pressed.connect(Transitions.change_scene_with_transition.bind(C.SCENE_PATHS.CREDITS_SCENE_PATH))
 	
 	
 

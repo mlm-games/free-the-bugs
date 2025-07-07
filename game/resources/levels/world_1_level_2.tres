@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://c8735djrapbeo"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_xarks"]
+
+[resource]
+script = ExtResource("1_xarks")
+level_id = &"W1Level2"
+initial_code = "class Hi {
+	void main() {
+		int health = \"100\";
+		print(health);
+	}
+}"
+answer_code = "class Hi {
+	void main() {
+		int health = 100;
+		print(health);
+	}
+}"
+output_string = "100"
+initial_tip = "[wave]Here the player has just spawned so his health must be 100, but the code fails..."
+first_edit_tip = "Hmm, the \"double quotes\" do look awfully sus here..."
+after_hint_tip = "The mistake is again present in [wave][b]line 3[/b][/wave]"
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

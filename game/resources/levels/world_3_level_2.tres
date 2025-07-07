@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://coff4voefj8lu"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_3p4mc"]
+
+[resource]
+script = ExtResource("1_3p4mc")
+level_id = &"W3Level2"
+initial_code = "class Hi {
+	class Player {
+			int health;
+			Player(int health) {
+				this.health = health;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player();
+		String percent = p1.calculateHealthPercentage();
+		if (p1.health == 100) {
+			println(\"Health is at \" + percent);
+		}
+	}
+}"
+answer_code = "class Hi {
+	class Player {
+			int health;
+			Player(int health) {
+				this.health = health;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	void main() {
+		Player p1 = new Player(100);
+		String percent = p1.calculateHealthPercentage();
+		if (p1.health == 100) {
+			println(\"Health is at \" + percent);
+		}
+	}
+}"
+output_string = "Health is at 100%"
+initial_tip = "[wave] You want a hint? Here it is... Its not related to [i]this"
+first_edit_tip = "[wave] Constructors..."
+after_hint_tip = "Its related to [wave] the creation of the shooter player"
+show_dialogue = false
+show_hint_button = false
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

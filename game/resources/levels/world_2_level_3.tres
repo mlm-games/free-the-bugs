@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://c5o1et3gbwqq3"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_1rruj"]
+
+[resource]
+script = ExtResource("1_1rruj")
+level_id = &"W2Level3"
+initial_code = "import java.util.Scanner
+
+class Hi {
+	void main() {
+		Scanner sc = new Scanner(System.in);
+		int health = sc.nextInt(); //Lets say user input is 100
+
+		if (sc.health == 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+answer_code = "import java.util.Scanner
+
+class Hi {
+	void main() {
+		Scanner sc = new Scanner(System.in);
+		int health = sc.nextInt(); //Lets say user input is 100
+
+		if (health == 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+output_string = "Health is full"
+initial_tip = "[wave]Ooh a hard one (or is the syntax fooling you?) 
+fyi \"Scanner\" is used to take user input..."
+first_edit_tip = "[wave] Hmm, the health is being compared again? "
+after_hint_tip = "Looks like the issue is present in [b][i]line 9[/i][/b]."
+show_dialogue = false
+show_hint_button = false
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://dui2ldi8n4wpr"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_l2pic"]
+
+[resource]
+script = ExtResource("1_l2pic")
+level_id = &"W1Level1"
+initial_code = "class Hi {
+	class Player {
+			int health;
+			Player(int health) {
+				this.health = health;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	class ShootingPlayer extends Player {
+		ShootingPlayer(String health = 0) {
+			super(health);
+		}
+	}
+	void main() {
+		Player p1 = new ShooterPlayer(0);
+		if (p1.health == 0) {
+			println(\"Player's dead\");
+		}
+	}
+}"
+answer_code = "class Hi {
+	class Player {
+			int health;
+			Player(int health) {
+				this.health = health;
+			}
+			String calculateHealthPercentage() {
+				return String(health) + \"%\";
+			}
+	}
+	class ShootingPlayer extends Player {
+		ShootingPlayer(int health = 0) {
+			super(health);
+		}
+	}
+	void main() {
+		Player p1 = new ShooterPlayer(0);
+		if (p1.health == 0) {
+			println(\"Player's dead\");
+		}
+	}
+}"
+first_edit_tip = "[wave] Inheritance... Context: Player's dead but output says not dead?"
+show_dialogue = false
+show_hint_button = false
+metadata/_custom_type_script = "uid://yrel17oy1sm2"

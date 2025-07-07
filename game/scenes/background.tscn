@@ -1,8 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyqm36mbv3146"]
+[gd_scene load_steps=16 format=3 uid="uid://cyqm36mbv3146"]
 
 [ext_resource type="Shader" uid="uid://cl436onb522s7" path="res://seamless.gdshader" id="1_1db1t"]
 [ext_resource type="Texture2D" uid="uid://bt2qx8l3hgul0" path="res://assets/art/bulb.svg" id="2_g7wmv"]
 [ext_resource type="AudioStream" uid="uid://cqphfv3lmmtsd" path="res://assets/sounds/music-loop-bundle-download_2024_q1/Sketchbook 2024-03-20_02.ogg" id="3_xdsbx"]
+[ext_resource type="Script" uid="uid://djxiutksgu8ii" path="res://game/level_manager.gd" id="4_4450i"]
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="5_qdxm0"]
+[ext_resource type="Resource" uid="uid://btsbt2qyriggs" path="res://game/resources/levels/world_1_level_1.tres" id="6_8uj1p"]
+[ext_resource type="Resource" uid="uid://c8735djrapbeo" path="res://game/resources/levels/world_1_level_2.tres" id="7_c7dyf"]
+[ext_resource type="Resource" uid="uid://d1gvuu2xl0pa5" path="res://game/resources/levels/world_1_level_3.tres" id="8_bc4wd"]
+[ext_resource type="Resource" uid="uid://ckx6nl7wj52sl" path="res://game/resources/levels/world_2_level_1.tres" id="9_4h0ln"]
+[ext_resource type="Resource" uid="uid://cl0brdjtk6cnx" path="res://game/resources/levels/world_2_level_2.tres" id="10_24dsj"]
+[ext_resource type="Resource" uid="uid://c5o1et3gbwqq3" path="res://game/resources/levels/world_2_level_3.tres" id="11_rwkru"]
+[ext_resource type="Resource" uid="uid://rbtdyackl55d" path="res://game/resources/levels/world_3_level_1.tres" id="12_1sasm"]
+[ext_resource type="Resource" uid="uid://coff4voefj8lu" path="res://game/resources/levels/world_3_level_2.tres" id="13_qydui"]
+[ext_resource type="Resource" uid="uid://dui2ldi8n4wpr" path="res://game/resources/levels/world_3_level_3.tres" id="14_y8fwi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g7wmv"]
 shader = ExtResource("1_1db1t")
@@ -34,3 +45,8 @@ stream = ExtResource("3_xdsbx")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("4_4450i")
+level_definitions = Array[ExtResource("5_qdxm0")]([ExtResource("6_8uj1p"), ExtResource("7_c7dyf"), ExtResource("8_bc4wd"), ExtResource("9_4h0ln"), ExtResource("10_24dsj"), ExtResource("11_rwkru"), ExtResource("12_1sasm"), ExtResource("13_qydui"), ExtResource("14_y8fwi")])
+metadata/_custom_type_script = "uid://djxiutksgu8ii"

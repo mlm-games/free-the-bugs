@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://ckx6nl7wj52sl"]
+
+[ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_cw7l3"]
+
+[resource]
+script = ExtResource("1_cw7l3")
+level_id = &"W2Level1"
+initial_code = "class Hi {
+	class HealthProvider {
+		private int health = 100;
+	}
+
+	void main() {
+		HealthProvider hb = new HealthProvider();
+		if (health == 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+answer_code = "class Hi {
+	class HealthProvider {
+		private int health = 100;
+	}
+
+	void main() {
+		HealthProvider hb = new HealthProvider();
+		if (hb.health == 100) {
+			print(\"Health is full\");
+		}
+	}
+}"
+output_string = "Health is full"
+initial_tip = "[wave]Everything in Gava is an object..."
+first_edit_tip = "[wave] There is a object [i][b]hb[/b][/i] being created but not used anywhere...."
+after_hint_tip = "Looks like the issue is present in [b][i]line 8[/i][/b]."
+metadata/_custom_type_script = "uid://yrel17oy1sm2"
