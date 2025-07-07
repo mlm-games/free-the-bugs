@@ -65,7 +65,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="WinLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -73,5 +73,18 @@ offset_bottom = 274.0
 grow_horizontal = 2
 bbcode_enabled = true
 text = "[shake][font_size=50][color=purple]You win?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 324.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[shake][font_size=20][color=lightblue]Time taken: "
 horizontal_alignment = 1
 vertical_alignment = 1
