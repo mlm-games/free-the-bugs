@@ -30,4 +30,4 @@ $startMenu = Join-Path $env:ProgramData "Microsoft\Windows\Start Menu\Programs"
 $shortcutFile = Join-Path $startMenu "$packageName.lnk"
 Install-ChocolateyShortcut -ShortcutFilePath $shortcutFile -TargetPath $fileLocation
 
-Write-Host "FreeTheBugs has been installed to $installDir"
+Write-Host "$packageName has been installed to $installDir"
