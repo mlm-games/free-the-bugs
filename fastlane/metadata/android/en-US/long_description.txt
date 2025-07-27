@@ -1,0 +1,10 @@
+Free the Bugs is a simple narrative game with buggy code snippets that need fixing. Each level has a simple programming error - like a missing semicolon or wrong variable type. 
+
+How to Play
+
+    1. Look at the buggy code
+    2. Click to edit and fix the error
+    3. The level completes when the bug is fixed
+
+
+Was initially made for mehu game jam in just 2 days! Itch link: https://ragebreaker.itch.io/free-the-bugs
