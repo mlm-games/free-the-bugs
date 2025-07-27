@@ -3,7 +3,7 @@ base: core22
 version: '0.4.1'
 summary: A short game on fixing java bugs
 description: |
-  <PlaceHolderLongDesc>
+  Was initially made for mehu game jam in just 2 days! Itch link: https://ragebreaker.itch.io/free-the-bugs
 
 grade: stable
 confinement: strict
