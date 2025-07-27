@@ -2,7 +2,7 @@ $ErrorActionPreference = 'Stop'
 
 $packageName = 'free-the-bugs'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://github.com/mlm-games/free-the-bugs/releases/download/0.4.1/free-the-bugs.exe'
+$url = 'https://github.com/mlm-games/free-the-bugs/releases/download/0.5.1/free-the-bugs.exe'
 
 $packageArgs = @{
   packageName   = $packageName
