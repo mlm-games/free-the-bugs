@@ -1,3 +1,8 @@
+## v0.5.1
+
+- fix aur upload?
+
+
 ## v0.5.0
 
 - add an endscreen and fix w3 discrepancies by @mlm-studios
