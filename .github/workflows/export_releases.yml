@@ -119,7 +119,7 @@ jobs:
         uses: mlm-games/godot-build-action@main
         with:
           EXPORT_PRESET_NAME: ${{ matrix.platform }}
-          ITCH_USER_SLASH_GAME: "ragebreaker/<placeholdername>" #TODO: Edit when copying
+          ITCH_USER_SLASH_GAME: "ragebreaker/free-the-bugs" #TODO: Edit when copying
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
           KEYSTORE_PASSPHRASE: ${{ secrets.KEYSTORE_PASSPHRASE }}
