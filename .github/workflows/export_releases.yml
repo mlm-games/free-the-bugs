@@ -31,11 +31,11 @@ on:
       #   required: false
       #   default: 'false'
       #   type: boolean
-      # publish_to_aur:
-      #   description: 'Publish to AUR'
-      #   required: false
-      #   default: 'false'
-      #   type: boolean
+      publish_to_aur:
+        description: 'Publish to AUR'
+        required: false
+        default: 'false'
+        type: boolean
 
 jobs:
   commit-vercode-changes:
@@ -64,7 +64,7 @@ jobs:
           changelog-path: 'CHANGELOG.md'
           version-file-path: './fastlane/metadata/android/en-US/changelogs/${{ steps.prev_version.outputs.new_code }}.txt'
           version-code: '${{ steps.prev_version.outputs.new_code }}'
-          metainfo-path: './others/flathub/io.github.mlm_games.free-the-bugs.metainfo.xml'  # TODO: Change here when copying
+          metainfo-path: './others/flathub/io.github.mlm_games.free_the_bugs.metainfo.xml'  # TODO: Change here when copying
           exclude-patterns: 'Update version to,Merge ,Auto-generate changelog'
           auto-commit: 'true'
           commit-message: 'Update release notes for v{{version}}'
@@ -119,7 +119,7 @@ jobs:
         uses: mlm-games/godot-build-action@main
         with:
           EXPORT_PRESET_NAME: ${{ matrix.platform }}
-          ITCH_USER_SLASH_GAME: "ragebreaker/free-the-bugs" #TODO: Edit when copying
+          ITCH_USER_SLASH_GAME: "ragebreaker/<placeholdername>" #TODO: Edit when copying
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
           KEYSTORE_PASSPHRASE: ${{ secrets.KEYSTORE_PASSPHRASE }}
@@ -283,26 +283,26 @@ jobs:
   #         release-tag: ${{ inputs.version_name }}
   #         token: ${{ secrets.WINGET_TOKEN }}
 
-  # update-aur:
-  #   needs: [prepare-and-build]
-  #   runs-on: ubuntu-latest
-  #   if: ${{ inputs.publish_to_aur == true }}
-  #   steps:
-  #     - name: Trigger AUR publish workflow
-  #       uses: actions/github-script@v7
-  #       with:
-  #         github-token: ${{ secrets.GITHUB_TOKEN }}
-  #         script: |
-  #           await github.rest.actions.createWorkflowDispatch({
-  #             owner: context.repo.owner,
-  #             repo: context.repo.repo,
-  #             workflow_id: 'test-aur-upload.yml',
-  #             ref: 'main',
-  #             inputs: {
-  #               version_name: '${{ inputs.version_name }}',
-  #               increment_pkgrel: 'false'
-  #             }
-  #           });
+  update-aur:
+    needs: [prepare-and-build]
+    runs-on: ubuntu-latest
+    if: ${{ inputs.publish_to_aur == true }}
+    steps:
+      - name: Trigger AUR publish workflow
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'test-aur-upload.yml',
+              ref: 'main',
+              inputs: {
+                version_name: '${{ inputs.version_name }}',
+                increment_pkgrel: 'false'
+              }
+            });
             
-  #           console.log('Triggered AUR publish workflow for version ${{ inputs.version_name }}');
+            console.log('Triggered AUR publish workflow for version ${{ inputs.version_name }}');
 

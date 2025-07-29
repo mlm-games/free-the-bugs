@@ -64,7 +64,7 @@ jobs:
           pkgname=free-the-bugs-bin
           pkgver=${{ inputs.version_name }}
           pkgrel=${{ steps.pkgrel.outputs.pkgrel }}
-          pkgdesc="A simple pomodoro timer application (binary release)"
+          pkgdesc="A short game on solving small java bugs (binary)"
           arch=('x86_64' 'aarch64')
           url="https://github.com/mlm-games/free-the-bugs"
           license=('GPL3')
@@ -74,7 +74,7 @@ jobs:
           provides=('free-the-bugs')
           conflicts=('free-the-bugs')
           options=('!strip')
-          source=("https://raw.githubusercontent.com/mlm-games/free-the-bugs/main/icon.png")
+          source=("https://raw.githubusercontent.com/mlm-games/free-the-bugs/refs/heads/main/fastlane/metadata/android/en-US/images/icon.png")
           source_x86_64=("free-the-bugs-${{ inputs.version_name }}-x64::https://github.com/mlm-games/free-the-bugs/releases/download/${{ inputs.version_name }}/free-the-bugs.x86_64")
           source_aarch64=("free-the-bugs-${{ inputs.version_name }}-arm64::https://github.com/mlm-games/free-the-bugs/releases/download/${{ inputs.version_name }}/free-the-bugs.arm64")
           sha256sums=('SKIP')
@@ -104,7 +104,7 @@ jobs:
           Terminal=false
           Type=Application
           Icon=free-the-bugs
-          Comment=A simple pomodoro timer application
+          Comment=A short narrative bug solver
           Categories=Utility;Office;
           StartupNotify=true
           DESKTOP_EOF
