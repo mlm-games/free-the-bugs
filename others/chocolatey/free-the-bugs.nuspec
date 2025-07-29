@@ -7,7 +7,7 @@
     <authors>mlmstudios</authors>
     <projectUrl>https://github.com/mlm-games/free-the-bugs</projectUrl>
     <licenseUrl>https://github.com/mlm-games/free-the-bugs/blob/main/LICENSE</licenseUrl>
-    <iconUrl>https://raw.githubusercontent.com/mlm-games/free-the-bugs/main/icon.png</iconUrl>
+    <iconUrl>https://cdn.statically.io/gh/mlm-games/free-the-bugs/0.5.0/assets/art/bulb.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A small puzzle game where you fix simple code bugs</description>
     <summary>A short game on fixing java bugs</summary>
