@@ -1,0 +1,1 @@
+- Update free-the-bugs.nuspec
