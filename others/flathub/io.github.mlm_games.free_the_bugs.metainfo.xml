@@ -45,6 +45,13 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="0.5.2" date="2025-08-05">
+      <description>
+        <ul>
+          <li>make the orientation depend on sensor</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.5.1" date="2025-07-28">
       <url type="Release details">https://github.com/mlm-games/free-the-bugs/releases</url>
     </release>

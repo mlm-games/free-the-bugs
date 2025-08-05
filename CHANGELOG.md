@@ -1,3 +1,8 @@
+## v0.5.2
+
+- make the orientation depend on sensor
+
+
 ## v0.5.1
 
 - fix aur upload?
