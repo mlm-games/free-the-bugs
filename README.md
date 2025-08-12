@@ -2,6 +2,12 @@
 
 A small puzzle game where you fix simple code bugs. Find and correct errors in code snippets across few short levels.
 
+[<img src="https://f-droid.org/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/com.game.freethebugs/)
+
+Or download the latest APK from the [Releases Section](https://github.com/mlm-games/free-the-bugs/releases/latest).
+
 ## About
 
 Free the Bugs is a simple narrative game with buggy code snippets that need fixing. Each level has a simple programming error - like a missing semicolon or wrong variable type. 
