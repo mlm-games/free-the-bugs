@@ -7,7 +7,6 @@ offset_right = 95.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 script = ExtResource("1_8nk1n")
-metadata/_custom_type_script = "uid://cqqyq5lehsp27"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
