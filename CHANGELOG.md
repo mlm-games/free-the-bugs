@@ -1,3 +1,8 @@
+## v0.6.0
+
+- update ui scaling to fix #1
+
+
 ## v0.5.2
 
 - make the orientation depend on sensor

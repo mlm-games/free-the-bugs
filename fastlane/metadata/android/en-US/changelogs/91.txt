@@ -1,0 +1,1 @@
+- update ui scaling to fix #1

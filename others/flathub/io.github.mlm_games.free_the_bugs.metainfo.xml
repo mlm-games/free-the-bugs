@@ -45,6 +45,13 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="0.6.0" date="2025-10-02">
+      <description>
+        <ul>
+          <li>update ui scaling to fix #1</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.5.2" date="2025-08-05">
       <description>
         <ul>
