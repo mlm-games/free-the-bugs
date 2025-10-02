@@ -63,7 +63,7 @@ func get_object() -> Node:
 	
 	if _available.is_empty():
 		if _active.size() >= _max_size:
-			push_warning("ObjectPool: Max size reached. Deleting an old object.")
+			#push_warning("ObjectPool: Max size reached. Deleting an old object.")
 			#return null
 			_release_object_internal(_active.pop_back())
 		obj = _pool_scene.instantiate()

@@ -8,8 +8,13 @@ func _ready() -> void:
 	%ExitButton.pressed.connect(_on_exit_button_pressed)
 	%CreditsButton.pressed.connect(Transitions.change_scene_with_transition.bind(C.SCENE_PATHS.CREDITS_SCENE_PATH))
 	
-	
+	_apply_portrait_ui_scale()
 
+func _apply_portrait_ui_scale() -> void:
+	var s := get_window().size  # Window is the root Viewport in 4.x
+	var portrait := s.y >= s.x
+	if portrait:
+		get_window().content_scale_factor = 2.0
 
 
 func _on_exit_button_pressed() -> void:

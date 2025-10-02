@@ -37,6 +37,7 @@ runtime/balloon_path="res://game/resources/balloon.tscn"
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/handheld/orientation=6
 
 [editor_plugins]

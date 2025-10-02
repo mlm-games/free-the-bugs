@@ -27,6 +27,74 @@ func _ready() -> void:
 	
 	code_area.text_changed.connect(_on_code_changed)
 	hint_button.pressed.connect(_on_hint_pressed)
+	
+	_apply_layout()
+	
+
+
+func _wire_responsive_layout() -> void:
+	# Re-apply layout on rotation/resize
+	get_viewport().size_changed.connect(_apply_layout)
+	_apply_layout.call_deferred()
+
+func _apply_layout() -> void:
+	var s := get_viewport().get_visible_rect().size
+	var portrait := s.y >= s.x
+
+	if portrait:
+		_layout_portrait()
+	else:
+		_layout_landscape()
+
+func _rect_percent(ctrl: Control, l: float, t: float, r: float, b: float, margin := 12.0) -> void:
+	ctrl.anchor_left = l;   ctrl.anchor_top = t
+	ctrl.anchor_right = r;  ctrl.anchor_bottom = b
+	ctrl.offset_left = margin
+	ctrl.offset_top = margin
+	ctrl.offset_right = -margin
+	ctrl.offset_bottom = -margin
+
+func _layout_portrait() -> void:
+	# CodeArea - top ~55%
+	_rect_percent(code_area, 0.0, 0.0, 1.0, 0.55)
+
+	# OutputArea - sits below
+	if is_instance_valid(output_area):
+		_rect_percent(output_area, 0.0, 0.55, 1.0, 0.82)
+
+	# TipLabel - bottom band
+	_rect_percent(tip_label, 0.0, 0.82, 1.0, 0.92, 8.0)
+
+	# Hint button - bottom-right
+	hint_button.anchor_left = 1.0
+	hint_button.anchor_right = 1.0
+	hint_button.anchor_top = 1.0
+	hint_button.anchor_bottom = 1.0
+	hint_button.offset_left = -150
+	hint_button.offset_right = -20
+	hint_button.offset_top = -120
+	hint_button.offset_bottom = -40
+	
+
+func _layout_landscape() -> void:
+	# CodeArea - left column
+	_rect_percent(code_area, 0.02, 0.05, 0.64, 0.93)
+
+	# OutputArea upper-right
+	if is_instance_valid(output_area):
+		_rect_percent(output_area, 0.66, 0.05, 0.98, 0.60)
+
+	_rect_percent(tip_label, 0.02, 0.93, 0.98, 1.0, 8.0)
+
+	# Hint button bottom-right
+	hint_button.anchor_left = 1.0
+	hint_button.anchor_right = 1.0
+	hint_button.anchor_top = 1.0
+	hint_button.anchor_bottom = 1.0
+	hint_button.offset_left = -140
+	hint_button.offset_right = -25
+	hint_button.offset_top = -110
+	hint_button.offset_bottom = -30
 
 func _on_start_level(new_level_data: LevelData):
 	var next_level_instance = load(C.SCENE_PATHS.BASE_LEVEL_SCENE_PATH).instantiate()

@@ -51,3 +51,4 @@ func _apply_gameplay_settings(settings: Dictionary) -> void:
 
 func _apply_accessibility_settings(settings: Dictionary) -> void:
 	TranslationServer.set_locale(settings.current_locale)
+	if settings.has("ui_scale"): get_window().content_scale_factor = float(settings.ui_scale * 2)

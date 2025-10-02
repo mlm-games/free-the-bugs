@@ -3,6 +3,7 @@ class_name SettingsProfile extends Resource
 #@export_group("Accessibility")
 @export var accessibility: Dictionary = {
 	"current_locale": "en",
+	"ui_scale": 0.5,
 }
 #@export_group("Gameplay")
 @export var gameplay: Dictionary = {
