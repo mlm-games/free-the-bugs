@@ -26,7 +26,7 @@ apps:
       - desktop
       - desktop-legacy
       - unity7
-    desktop: free-the-bugs.desktop
+    desktop: gui/free-the-bugs.desktop
 
 parts:
   free-the-bugs:
