@@ -26,7 +26,7 @@ apps:
       - desktop
       - desktop-legacy
       - unity7
-    desktop: others/snap/gui/free-the-bugs.desktop
+    desktop: free-the-bugs.desktop
 
 parts:
   free-the-bugs:
