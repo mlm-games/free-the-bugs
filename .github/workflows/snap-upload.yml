@@ -35,7 +35,7 @@ jobs:
           
           mkdir -p others/snap/gui
           cp others/flathub/io.github.mlm_games.free-the-bugs.desktop others/snap/gui/free-the-bugs.desktop
-          cp fastlane/metadata/android/en-US/icon.png others/snap/gui/icon.png
+          cp fastlane/metadata/android/en-US/images/icon.png others/snap/gui/icon.png
 
           set -e
           echo "Fetch 'free-the-bugs.x86_64'..."
