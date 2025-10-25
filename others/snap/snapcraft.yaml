@@ -8,6 +8,8 @@ description: |
 grade: stable
 confinement: strict
 
+icon: gui/icon.png
+
 architectures:
   - build-on: amd64
   - build-on: arm64
@@ -18,13 +20,8 @@ apps:
     extensions: [gnome]
     plugs:
       - home
-      - removable-media
       - network
-      - opengl
-      - x11
-      - wayland
-      - desktop
-      - desktop-legacy
+      - removable-media
       - unity7
     desktop: gui/free-the-bugs.desktop
 
@@ -41,9 +38,25 @@ parts:
       - libxi6
       - libpulse0
     override-build: |
-      snapcraftctl build
-      chmod +x $SNAPCRAFT_PART_INSTALL/free-the-bugs
+      craftctl default
+      chmod +x "$CRAFT_PART_INSTALL/free-the-bugs"
 
-layout:
-  /usr/share/free-the-bugs:
-    bind: $SNAP/usr/share/free-the-bugs
+  desktop-assets:
+    plugin: dump
+    source: ./gui
+    stage:
+      - free-the-bugs.desktop
+      - icon.png
+    organize:
+      free-the-bugs.desktop: gui/free-the-bugs.desktop
+      icon.png: meta/gui/icon.png
+    override-pull: |
+      craftctl default
+      sed -i -e 's|^Exec=.*|Exec=free-the-bugs|' \
+             -e 's|^Icon=.*|Icon=${SNAP}/meta/gui/icon.png|' \
+             "$CRAFT_PART_SRC/free-the-bugs.desktop"
+
+# Should only keep this if am binding something that exists in the snap.
+# layout:
+#   /usr/share/free-the-bugs:
+#     bind: $SNAP/usr/share/free-the-bugs
