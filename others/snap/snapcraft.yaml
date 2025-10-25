@@ -4,7 +4,6 @@ version: '0.5.1'
 summary: A short game on fixing java bugs
 description: |
   Was initially made for mehu game jam in just 2 days! Itch link: https://ragebreaker.itch.io/free-the-bugs
-
 grade: stable
 confinement: strict
 
@@ -18,11 +17,7 @@ apps:
   free-the-bugs:
     command: free-the-bugs
     extensions: [gnome]
-    plugs:
-      - home
-      - network
-      - removable-media
-      - unity7
+    plugs: [home, network, removable-media, unity7]
     desktop: gui/free-the-bugs.desktop
 
 parts:
@@ -50,13 +45,3 @@ parts:
     organize:
       free-the-bugs.desktop: gui/free-the-bugs.desktop
       icon.png: meta/gui/icon.png
-    override-pull: |
-      craftctl default
-      sed -i -e 's|^Exec=.*|Exec=free-the-bugs|' \
-             -e 's|^Icon=.*|Icon=${SNAP}/meta/gui/icon.png|' \
-             "$CRAFT_PART_SRC/free-the-bugs.desktop"
-
-# Should only keep this if am binding something that exists in the snap.
-# layout:
-#   /usr/share/free-the-bugs:
-#     bind: $SNAP/usr/share/free-the-bugs
