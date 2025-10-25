@@ -31,14 +31,13 @@ jobs:
 
       - name: Fetch Linux binary (with fallback)
         run: |
-          mkdir -p others/snap/builds
-          
-          mkdir -p others/snap/gui
+          set -euo pipefail
+          mkdir -p others/snap/builds others/snap/gui
           cp others/flathub/io.github.mlm_games.free-the-bugs.desktop others/snap/gui/free-the-bugs.desktop
           cp fastlane/metadata/android/en-US/images/icon.png others/snap/gui/icon.png
-
-          set -e
-          echo "Fetch 'free-the-bugs.x86_64'..."
+          sed -i -e 's|^Exec=.*|Exec=free-the-bugs|' \
+                 -e 's|^Icon=.*|Icon=${SNAP}/meta/gui/icon.png|' \
+                 others/snap/gui/free-the-bugs.desktop
           curl -fL "https://github.com/${{ github.repository }}/releases/download/${{ inputs.version_name }}/free-the-bugs.x86_64" -o others/snap/builds/free-the-bugs
           chmod +x others/snap/builds/free-the-bugs
 
