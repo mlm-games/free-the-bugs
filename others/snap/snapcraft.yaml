@@ -7,8 +7,6 @@ description: |
 grade: stable
 confinement: strict
 
-icon: gui/icon.png
-
 architectures:
   - build-on: amd64
   - build-on: arm64
@@ -18,7 +16,7 @@ apps:
     command: free-the-bugs
     extensions: [gnome]
     plugs: [home, network, removable-media, unity7]
-    desktop: gui/free-the-bugs.desktop
+    desktop: snap/gui/free-the-bugs.desktop
 
 parts:
   free-the-bugs:
@@ -32,16 +30,3 @@ parts:
       - libxrandr2
       - libxi6
       - libpulse0
-    override-build: |
-      craftctl default
-      chmod +x "$CRAFT_PART_INSTALL/free-the-bugs"
-
-  desktop-assets:
-    plugin: dump
-    source: ./gui
-    stage:
-      - free-the-bugs.desktop
-      - icon.png
-    organize:
-      free-the-bugs.desktop: gui/free-the-bugs.desktop
-      icon.png: meta/gui/icon.png
