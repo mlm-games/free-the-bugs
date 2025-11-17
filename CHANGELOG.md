@@ -1,3 +1,8 @@
+## v0.6.4
+
+- Update export_releases.yml
+
+
 ## v0.6.3
 
 - fix desktop file
