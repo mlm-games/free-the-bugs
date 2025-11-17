@@ -39,6 +39,13 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="0.6.2" date="2025-11-17" type="stable">
+      <description>
+        <ul>
+          <li>Update io.github.mlm_games.free-the-bugs.metainfo.xml</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.6.0" date="2025-10-02">
       <description>
         <ul>
@@ -57,7 +64,7 @@
       <url type="details">https://github.com/mlm-games/free-the-bugs/releases</url>
     </release>
   </releases>
-  <content_rating type="oars-1.1"></content_rating>
+  <content_rating type="oars-1.1"/>
   <developer id="io.github.mlm_games">
     <name>MLM Games</name>
   </developer>
