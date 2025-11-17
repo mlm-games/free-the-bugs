@@ -1,3 +1,8 @@
+## v0.6.1
+
+- Update io.github.mlm_games.free-the-bugs.metainfo.xml
+
+
 ## v0.6.0
 
 - update ui scaling to fix #1
