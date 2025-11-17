@@ -1,3 +1,8 @@
+## v0.6.3
+
+- fix desktop file
+
+
 ## v0.6.2
 
 - Update io.github.mlm_games.free-the-bugs.metainfo.xml
