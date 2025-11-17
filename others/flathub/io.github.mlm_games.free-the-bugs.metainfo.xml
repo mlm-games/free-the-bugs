@@ -6,10 +6,12 @@
   <name>FreeTheBugs</name>
   <summary>A short game on fixing java bugs</summary>
   <description>
-    <p>Was initially made for mehu game jam in just 2 days! Itch link: https://ragebreaker.itch.io/free-the-bugs</p>
+    <p>Was initially made for mehu game jam in just 2 days!</p>
   </description>
   <launchable type="desktop-id">io.github.mlm_games.free-the-bugs.desktop</launchable>
   <url type="homepage">https://github.com/mlm-games/free-the-bugs</url>
+  <url type="vcs-browser">https://github.com/mlm-games/free-the-bugs</url>
+  <url type="bugtracker">https://github.com/mlm-games/free-the-bugs/issues</url>
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/mlm-games/free-the-bugs/refs/tags/0.5.1/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png</image>
@@ -52,7 +54,7 @@
       </description>
     </release>
     <release version="0.5.1" date="2025-07-28">
-      <url type="Release details">https://github.com/mlm-games/free-the-bugs/releases</url>
+      <url type="details">https://github.com/mlm-games/free-the-bugs/releases</url>
     </release>
   </releases>
   <content_rating type="oars-1.1"></content_rating>
