@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=FreeTheBugs
 Comment=A short game on fixing java bugs
-Exec=free-the-bugs %F
+Exec=free-the-bugs
 Icon=io.github.mlm_games.free-the-bugs
 Terminal=false
 Type=Application
-Categories=Games;Education;
+Categories=Game;Education;
