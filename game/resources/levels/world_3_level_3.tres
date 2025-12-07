@@ -21,7 +21,7 @@ initial_code = "class Hi {
 		}
 	}
 	void main() {
-		Player p1 = new ShooterPlayer(0);
+		Player p1 = new ShootingPlayer(0);
 		if (p1.health == 0) {
 			println(\"Player's dead\");
 		}
@@ -43,7 +43,7 @@ answer_code = "class Hi {
 		}
 	}
 	void main() {
-		Player p1 = new ShooterPlayer(0);
+		Player p1 = new ShootingPlayer(0);
 		if (p1.health == 0) {
 			println(\"Player's dead\");
 		}
