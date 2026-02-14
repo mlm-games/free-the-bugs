@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbuf1q3xsse3q"]
+[gd_scene format=3 uid="uid://cbuf1q3xsse3q"]
 
 [ext_resource type="Script" uid="uid://cipjcc7bkh1pc" path="res://addons/dialogue_manager/views/main_view.gd" id="1_h6qfq"]
 [ext_resource type="PackedScene" uid="uid://civ6shmka5e8u" path="res://addons/dialogue_manager/components/code_edit.tscn" id="2_f73fm"]
@@ -16,10 +16,14 @@
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
 "
 
+[sub_resource type="DPITexture" id="DPITexture_mpdoc"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
+"
+
 [sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_xv2j4"]
 script = ExtResource("7_necsa")
 
-[node name="MainView" type="Control"]
+[node name="MainView" type="Control" unique_id=26836209]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,9 +34,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_h6qfq")
 
-[node name="ParseTimer" type="Timer" parent="."]
+[node name="ParseTimer" type="Timer" parent="." unique_id=1362608029]
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="." unique_id=1547997971]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,52 +49,53 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 metadata/_edit_layout_mode = 1
 
-[node name="Content" type="HSplitContainer" parent="Margin"]
+[node name="Content" type="HSplitContainer" parent="Margin" unique_id=1200281415]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+dragger_visibility = 1
 
-[node name="SidePanel" type="VBoxContainer" parent="Margin/Content"]
+[node name="SidePanel" type="VBoxContainer" parent="Margin/Content" unique_id=1119297693]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Toolbar" type="HBoxContainer" parent="Margin/Content/SidePanel"]
+[node name="Toolbar" type="HBoxContainer" parent="Margin/Content/SidePanel" unique_id=1826073744]
 layout_mode = 2
 
-[node name="NewButton" type="Button" parent="Margin/Content/SidePanel/Toolbar"]
+[node name="NewButton" type="Button" parent="Margin/Content/SidePanel/Toolbar" unique_id=1274513769]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Start a new file"
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="OpenButton" type="MenuButton" parent="Margin/Content/SidePanel/Toolbar"]
+[node name="OpenButton" type="MenuButton" parent="Margin/Content/SidePanel/Toolbar" unique_id=999547743]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Open a file"
 icon = SubResource("DPITexture_w0gko")
 item_count = 7
 popup/item_0/text = "Open..."
-popup/item_0/icon = SubResource("DPITexture_w0gko")
+popup/item_0/icon = SubResource("DPITexture_mpdoc")
 popup/item_0/id = 100
 popup/item_1/text = "Quick open..."
-popup/item_1/icon = SubResource("DPITexture_w0gko")
+popup/item_1/icon = SubResource("DPITexture_mpdoc")
 popup/item_1/id = 101
 popup/item_2/id = -1
 popup/item_2/separator = true
 popup/item_3/text = "res://game/resources/hints.dialogue"
-popup/item_3/icon = SubResource("DPITexture_w0gko")
+popup/item_3/icon = SubResource("DPITexture_mpdoc")
 popup/item_3/id = 3
 popup/item_4/text = "res://game/resources/context.dialogue"
-popup/item_4/icon = SubResource("DPITexture_w0gko")
+popup/item_4/icon = SubResource("DPITexture_mpdoc")
 popup/item_4/id = 4
 popup/item_5/id = -1
 popup/item_5/separator = true
 popup/item_6/text = "Clear recent files"
 popup/item_6/id = 102
 
-[node name="SaveAllButton" type="Button" parent="Margin/Content/SidePanel/Toolbar"]
+[node name="SaveAllButton" type="Button" parent="Margin/Content/SidePanel/Toolbar" unique_id=762261246]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
@@ -98,39 +103,42 @@ text = "All"
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="FindInFilesButton" type="Button" parent="Margin/Content/SidePanel/Toolbar"]
+[node name="FindInFilesButton" type="Button" parent="Margin/Content/SidePanel/Toolbar" unique_id=2004210500]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Find in files..."
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="Bookmarks" type="VSplitContainer" parent="Margin/Content/SidePanel"]
+[node name="Bookmarks" type="VSplitContainer" parent="Margin/Content/SidePanel" unique_id=705883514]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="FilesList" parent="Margin/Content/SidePanel/Bookmarks" instance=ExtResource("2_npj2k")]
+[node name="FilesList" parent="Margin/Content/SidePanel/Bookmarks" unique_id=450226825 instance=ExtResource("2_npj2k")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="FilesPopupMenu" type="PopupMenu" parent="Margin/Content/SidePanel/Bookmarks/FilesList"]
+[node name="FilesPopupMenu" type="PopupMenu" parent="Margin/Content/SidePanel/Bookmarks/FilesList" unique_id=176765396]
 unique_name_in_owner = true
 
-[node name="TitleList" parent="Margin/Content/SidePanel/Bookmarks" instance=ExtResource("2_onb4i")]
+[node name="TitleList" parent="Margin/Content/SidePanel/Bookmarks" unique_id=835181252 instance=ExtResource("2_onb4i")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="CodePanel" type="VBoxContainer" parent="Margin/Content"]
+[node name="CodePanel" type="VBoxContainer" parent="Margin/Content" unique_id=88663100]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="Toolbar" type="HBoxContainer" parent="Margin/Content/CodePanel"]
+[node name="Toolbar" type="HBoxContainer" parent="Margin/Content/CodePanel" unique_id=1937147756]
 layout_mode = 2
 
-[node name="InsertButton" type="MenuButton" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="InsertButton" type="MenuButton" parent="Margin/Content/CodePanel/Toolbar" unique_id=781054677]
 unique_name_in_owner = true
 layout_mode = 2
+disabled = true
 text = "Insert"
 icon = SubResource("DPITexture_w0gko")
 item_count = 15
@@ -179,9 +187,10 @@ popup/item_14/text = "End dialogue"
 popup/item_14/icon = SubResource("DPITexture_w0gko")
 popup/item_14/id = 12
 
-[node name="TranslationsButton" type="MenuButton" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="TranslationsButton" type="MenuButton" parent="Margin/Content/CodePanel/Toolbar" unique_id=1345025197]
 unique_name_in_owner = true
 layout_mode = 2
+disabled = true
 text = "Translations"
 icon = SubResource("DPITexture_w0gko")
 item_count = 5
@@ -200,39 +209,42 @@ popup/item_4/text = "Import line changes from CSV..."
 popup/item_4/icon = SubResource("DPITexture_w0gko")
 popup/item_4/id = 203
 
-[node name="Separator" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="Separator" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar" unique_id=1546286918]
 layout_mode = 2
 
-[node name="SearchButton" type="Button" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="SearchButton" type="Button" parent="Margin/Content/CodePanel/Toolbar" unique_id=2042487608]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Search for text"
+disabled = true
 toggle_mode = true
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="Separator2" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="Separator2" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar" unique_id=1105161560]
 layout_mode = 2
 
-[node name="TestButton" type="Button" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="TestButton" type="Button" parent="Margin/Content/CodePanel/Toolbar" unique_id=817434536]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Test dialogue from start of file"
+disabled = true
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="TestLineButton" type="Button" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="TestLineButton" type="Button" parent="Margin/Content/CodePanel/Toolbar" unique_id=1837791459]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Test dialogue from current line"
+disabled = true
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="Spacer2" type="Control" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="Spacer2" type="Control" parent="Margin/Content/CodePanel/Toolbar" unique_id=825003323]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SupportButton" type="Button" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="SupportButton" type="Button" parent="Margin/Content/CodePanel/Toolbar" unique_id=1432740715]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Support Dialogue Manager"
@@ -240,39 +252,40 @@ text = "Sponsor"
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="Separator4" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="Separator4" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar" unique_id=1372058536]
 layout_mode = 2
 
-[node name="DocsButton" type="Button" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="DocsButton" type="Button" parent="Margin/Content/CodePanel/Toolbar" unique_id=506956005]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Docs"
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="VersionLabel" type="Label" parent="Margin/Content/CodePanel/Toolbar"]
+[node name="VersionLabel" type="Label" parent="Margin/Content/CodePanel/Toolbar" unique_id=192815503]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
 text = "v3.7.1"
 vertical_alignment = 1
 
-[node name="UpdateButton" parent="Margin/Content/CodePanel/Toolbar" instance=ExtResource("2_ph3vs")]
+[node name="UpdateButton" parent="Margin/Content/CodePanel/Toolbar" unique_id=966247402 instance=ExtResource("2_ph3vs")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "v2.44.1 available"
 
-[node name="SearchAndReplace" parent="Margin/Content/CodePanel" instance=ExtResource("6_ylh0t")]
+[node name="SearchAndReplace" parent="Margin/Content/CodePanel" unique_id=1670857045 instance=ExtResource("6_ylh0t")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CodeEdit" parent="Margin/Content/CodePanel" instance=ExtResource("2_f73fm")]
+[node name="CodeEdit" parent="Margin/Content/CodePanel" unique_id=1548645437 instance=ExtResource("2_f73fm")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.7862745, 0.7862745, 0.7862745, 1)
-theme_override_colors/background_color = Color(0.0798039, 0.0798039, 0.0798039, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.75)
+theme_override_colors/background_color = Color(0.103039995, 0.103039995, 0.103039995, 1)
 theme_override_colors/current_line_color = Color(1, 1, 1, 0.07)
 theme_override_fonts/font = ExtResource("7_mpdoc")
 theme_override_font_sizes/font_size = 14
@@ -334,16 +347,14 @@ Trainer: I had said I won't return but the dev can't handle scope creep properly
 Trainer: Onto the next one..
 => END"
 scroll_smooth = true
-scroll_vertical = 4.0
 syntax_highlighter = SubResource("SyntaxHighlighter_xv2j4")
 
-[node name="ErrorsPanel" parent="Margin/Content/CodePanel" instance=ExtResource("7_5cvl4")]
+[node name="ErrorsPanel" parent="Margin/Content/CodePanel" unique_id=949954696 instance=ExtResource("7_5cvl4")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Banner" type="CenterContainer" parent="."]
+[node name="Banner" type="CenterContainer" parent="." unique_id=1995964885]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -353,11 +364,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="VBoxContainer" parent="Banner"]
+[node name="PanelContainer" type="VBoxContainer" parent="Banner" unique_id=843843915]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="BannerImage" type="TextureRect" parent="Banner/PanelContainer"]
+[node name="BannerImage" type="TextureRect" parent="Banner/PanelContainer" unique_id=509599489]
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 mouse_filter = 0
@@ -365,43 +376,43 @@ mouse_default_cursor_shape = 2
 texture = ExtResource("9_y6rqu")
 expand_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Banner/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Banner/PanelContainer" unique_id=944057044]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="BannerNewButton" type="Button" parent="Banner/PanelContainer/HBoxContainer"]
+[node name="BannerNewButton" type="Button" parent="Banner/PanelContainer/HBoxContainer" unique_id=1864235889]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "New Dialogue..."
 icon = SubResource("DPITexture_w0gko")
 
-[node name="BannerQuickOpen" type="Button" parent="Banner/PanelContainer/HBoxContainer"]
+[node name="BannerQuickOpen" type="Button" parent="Banner/PanelContainer/HBoxContainer" unique_id=304158231]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Quick open..."
 icon = SubResource("DPITexture_w0gko")
 
-[node name="BannerExamples" type="Button" parent="Banner/PanelContainer/HBoxContainer"]
+[node name="BannerExamples" type="Button" parent="Banner/PanelContainer/HBoxContainer" unique_id=237380399]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Example projects..."
 
-[node name="NewDialog" type="FileDialog" parent="."]
+[node name="NewDialog" type="FileDialog" parent="." unique_id=1894936393]
 size = Vector2i(900, 750)
 min_size = Vector2i(600, 500)
 dialog_hide_on_ok = true
 filters = PackedStringArray("*.dialogue ; Dialogue")
 
-[node name="SaveDialog" type="FileDialog" parent="."]
+[node name="SaveDialog" type="FileDialog" parent="." unique_id=525345679]
 size = Vector2i(900, 750)
 min_size = Vector2i(600, 500)
 dialog_hide_on_ok = true
 filters = PackedStringArray("*.dialogue ; Dialogue")
 
-[node name="OpenDialog" type="FileDialog" parent="."]
+[node name="OpenDialog" type="FileDialog" parent="." unique_id=515142641]
 title = "Open a File"
 size = Vector2i(900, 750)
 min_size = Vector2i(600, 500)
@@ -410,19 +421,19 @@ dialog_hide_on_ok = true
 file_mode = 0
 filters = PackedStringArray("*.dialogue ; Dialogue")
 
-[node name="QuickOpenDialog" type="ConfirmationDialog" parent="."]
+[node name="QuickOpenDialog" type="ConfirmationDialog" parent="." unique_id=124008437]
 title = "Quick open"
 size = Vector2i(600, 900)
 min_size = Vector2i(400, 600)
 ok_button_text = "Open"
 
-[node name="QuickOpenFilesList" parent="QuickOpenDialog" instance=ExtResource("2_npj2k")]
+[node name="QuickOpenFilesList" parent="QuickOpenDialog" unique_id=266387877 instance=ExtResource("2_npj2k")]
 
-[node name="ExportDialog" type="FileDialog" parent="."]
+[node name="ExportDialog" type="FileDialog" parent="." unique_id=1782667835]
 size = Vector2i(900, 750)
 min_size = Vector2i(600, 500)
 
-[node name="ImportDialog" type="FileDialog" parent="."]
+[node name="ImportDialog" type="FileDialog" parent="." unique_id=1493218321]
 title = "Open a File"
 size = Vector2i(900, 750)
 min_size = Vector2i(600, 500)
@@ -430,30 +441,30 @@ ok_button_text = "Open"
 file_mode = 0
 filters = PackedStringArray("*.csv ; Translation CSV")
 
-[node name="ErrorsDialog" type="AcceptDialog" parent="."]
+[node name="ErrorsDialog" type="AcceptDialog" parent="." unique_id=1222824466]
 title = "Error"
 dialog_text = "You have errors in your script. Fix them and then try again."
 
-[node name="BuildErrorDialog" type="AcceptDialog" parent="."]
+[node name="BuildErrorDialog" type="AcceptDialog" parent="." unique_id=1519202386]
 title = "Errors"
 dialog_text = "You need to fix dialogue errors before you can run your game."
 
-[node name="CloseConfirmationDialog" type="ConfirmationDialog" parent="."]
+[node name="CloseConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=2030802790]
 title = "Unsaved changes"
 ok_button_text = "Save changes"
 
-[node name="UpdatedDialog" type="AcceptDialog" parent="."]
+[node name="UpdatedDialog" type="AcceptDialog" parent="." unique_id=409565610]
 title = "Updated"
 size = Vector2i(191, 100)
 dialog_text = "You're now up to date!"
 
-[node name="FindInFilesDialog" type="AcceptDialog" parent="."]
+[node name="FindInFilesDialog" type="AcceptDialog" parent="." unique_id=228276736]
 title = "Find in files"
 size = Vector2i(1200, 900)
 min_size = Vector2i(800, 600)
 ok_button_text = "Done"
 
-[node name="FindInFiles" parent="FindInFilesDialog" node_paths=PackedStringArray("main_view", "code_edit") instance=ExtResource("10_yold3")]
+[node name="FindInFiles" parent="FindInFilesDialog" unique_id=82537517 node_paths=PackedStringArray("main_view", "code_edit") instance=ExtResource("10_yold3")]
 custom_minimum_size = Vector2(400, 400)
 offset_left = 8.0
 offset_top = 8.0

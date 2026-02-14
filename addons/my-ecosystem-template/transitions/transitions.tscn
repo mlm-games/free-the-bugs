@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7j5jqynag4uw"]
+[gd_scene format=3 uid="uid://c7j5jqynag4uw"]
 
 [ext_resource type="Script" uid="uid://b13rnxpo5kt4b" path="res://addons/my-ecosystem-template/transitions/transitions.gd" id="1_mlxrt"]
 
@@ -132,12 +132,12 @@ _data = {
 &"slightFlash": SubResource("Animation_qqa86")
 }
 
-[node name="TransitionScreen" type="CanvasLayer"]
+[node name="TransitionScreen" type="CanvasLayer" unique_id=772561797]
 process_mode = 3
 layer = 99
 script = ExtResource("1_mlxrt")
 
-[node name="TransitionRect" type="ColorRect" parent="."]
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=469698145]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_t7n6f")
 anchors_preset = 15
@@ -147,13 +147,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TransitionPlayer" type="AnimationPlayer" parent="TransitionRect"]
+[node name="TransitionPlayer" type="AnimationPlayer" parent="TransitionRect" unique_id=454787516]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_mvkca")
-}
+libraries/ = SubResource("AnimationLibrary_mvkca")
 
-[node name="OnScreenEffectsRect" type="ColorRect" parent="."]
+[node name="OnScreenEffectsRect" type="ColorRect" parent="." unique_id=419610093]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,10 +159,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EffectsPlayer" type="AnimationPlayer" parent="OnScreenEffectsRect"]
+[node name="EffectsPlayer" type="AnimationPlayer" parent="OnScreenEffectsRect" unique_id=643110614]
 root_node = NodePath("../..")
 
-[node name="ShaderRect" type="ColorRect" parent="."]
+[node name="ShaderRect" type="ColorRect" parent="." unique_id=1005595991]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0

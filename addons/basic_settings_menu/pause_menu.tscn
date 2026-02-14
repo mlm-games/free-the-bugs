@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1e2f3g4h5i6j"]
+[gd_scene format=3 uid="uid://d1e2f3g4h5i6j"]
 
 [ext_resource type="Script" uid="uid://i3hey8xc0u3v" path="res://addons/basic_settings_menu/pause_menu.gd" id="1_abcde"]
 [ext_resource type="Script" uid="uid://cnfh1rl7a17mv" path="res://addons/my-ecosystem-template/autoloads/popup_animator.gd" id="2_fghij"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=1521549743]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_abcde")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1176178046]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5)
 
-[node name="CenterContainer" type="VBoxContainer" parent="."]
+[node name="CenterContainer" type="VBoxContainer" parent="." unique_id=841622437]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,21 +37,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="ResumeButton" type="Button" parent="CenterContainer"]
+[node name="ResumeButton" type="Button" parent="CenterContainer" unique_id=3712315]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
 
-[node name="SettingsButton" type="Button" parent="CenterContainer"]
+[node name="SettingsButton" type="Button" parent="CenterContainer" unique_id=1889542877]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="CenterContainer"]
+[node name="QuitButton" type="Button" parent="CenterContainer" unique_id=1092167434]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit to Main Menu"
 
-[node name="PopupAnimator" type="Node" parent="." node_paths=PackedStringArray("target_node")]
+[node name="PopupAnimator" type="Node" parent="." unique_id=950610922 node_paths=PackedStringArray("target_node")]
 script = ExtResource("2_fghij")
 target_node = NodePath("..")

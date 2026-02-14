@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnufpcdrreva3"]
+[gd_scene format=3 uid="uid://dnufpcdrreva3"]
 
 [ext_resource type="Script" uid="uid://dqa4a4wwoo0aa" path="res://addons/dialogue_manager/components/files_list.gd" id="1_cytii"]
 [ext_resource type="Texture2D" uid="uid://d3lr2uas6ax8v" path="res://addons/dialogue_manager/assets/icon.svg" id="2_3ijx1"]
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="FilesList" type="VBoxContainer"]
+[node name="FilesList" type="VBoxContainer" unique_id=866491792]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,13 +29,13 @@ size_flags_vertical = 3
 script = ExtResource("1_cytii")
 icon = ExtResource("2_3ijx1")
 
-[node name="FilterEdit" type="LineEdit" parent="."]
+[node name="FilterEdit" type="LineEdit" parent="." unique_id=1844365905]
 layout_mode = 2
 placeholder_text = "Filter files"
 clear_button_enabled = true
 right_icon = SubResource("DPITexture_w0gko")
 
-[node name="List" type="ItemList" parent="."]
+[node name="List" type="ItemList" parent="." unique_id=1692354218]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_d1e6u")

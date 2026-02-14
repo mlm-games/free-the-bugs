@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://duywdkq0tcnra"]
+[gd_scene format=3 uid="uid://duywdkq0tcnra"]
 
 [ext_resource type="Script" uid="uid://2csjfsa4noao" path="res://game/scenes/base_level.gd" id="1_cuxyw"]
 [ext_resource type="Resource" uid="uid://br0g15mlkqp0p" path="res://game/resources/hints.dialogue" id="2_n88w1"]
@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dust7b2j2ou7" path="res://assets/font/Fira_Code_v6.2/ttf/FiraCode-Retina.ttf" id="4_n88w1"]
 [ext_resource type="Texture2D" uid="uid://bt2qx8l3hgul0" path="res://assets/art/bulb.svg" id="5_5df0e"]
 
-[node name="W1Level0" type="Control"]
+[node name="W1Level0" type="Control" unique_id=1615854670]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ script = ExtResource("1_cuxyw")
 hint_dialogue = ExtResource("2_n88w1")
 level_dialogue = ExtResource("3_5df0e")
 
-[node name="CodeArea" type="CodeEdit" parent="."]
+[node name="CodeArea" type="CodeEdit" parent="." unique_id=1072919922]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -37,7 +37,7 @@ text = "class Hi {
 }"
 metadata/_edit_use_anchors_ = true
 
-[node name="AnsArea" type="CodeEdit" parent="."]
+[node name="AnsArea" type="CodeEdit" parent="." unique_id=1639240533]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -56,7 +56,7 @@ text = "class Hi {
 }"
 metadata/_edit_use_anchors_ = true
 
-[node name="HintButton" type="Button" parent="."]
+[node name="HintButton" type="Button" parent="." unique_id=245351515]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -78,7 +78,7 @@ vertical_icon_alignment = 0
 script = ExtResource("4_fsn53")
 metadata/_custom_type_script = "uid://cmo5qw3rubish"
 
-[node name="TipLabel" type="RichTextLabel" parent="."]
+[node name="TipLabel" type="RichTextLabel" parent="." unique_id=191203937]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 28.0
@@ -90,7 +90,7 @@ text = "[wave]Here the player has just spawned so his health must be 100, but th
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OutputArea" type="CodeEdit" parent="."]
+[node name="OutputArea" type="CodeEdit" parent="." unique_id=704499866]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 784.0

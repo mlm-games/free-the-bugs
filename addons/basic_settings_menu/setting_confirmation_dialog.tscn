@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwcsibejua3bb"]
+[gd_scene format=3 uid="uid://bwcsibejua3bb"]
 
 [ext_resource type="Script" uid="uid://curtlv5hlt5iq" path="res://addons/basic_settings_menu/confirmation_dialog.gd" id="1_uq3ti"]
 
-[node name="ConfirmationDialog" type="ConfirmationDialog"]
+[node name="ConfirmationDialog" type="ConfirmationDialog" unique_id=1122299051]
 oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(335, 107)
@@ -13,5 +13,5 @@ dialog_autowrap = true
 cancel_button_text = "Revert"
 script = ExtResource("1_uq3ti")
 
-[node name="CountdownTimer" type="Timer" parent="."]
+[node name="CountdownTimer" type="Timer" parent="." unique_id=1596850473]
 unique_name_in_owner = true

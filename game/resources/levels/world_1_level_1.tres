@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://btsbt2qyriggs"]
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://btsbt2qyriggs"]
 
 [ext_resource type="Script" uid="uid://yrel17oy1sm2" path="res://game/level_data.gd" id="1_qa4o4"]
 

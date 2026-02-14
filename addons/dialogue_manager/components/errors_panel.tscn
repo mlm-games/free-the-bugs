@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs8pwrxr5vxix"]
+[gd_scene format=3 uid="uid://cs8pwrxr5vxix"]
 
 [ext_resource type="Script" uid="uid://d2l8nlb6hhrfp" path="res://addons/dialogue_manager/components/errors_panel.gd" id="1_nfm3c"]
 
@@ -6,7 +6,7 @@
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
 "
 
-[node name="ErrorsPanel" type="HBoxContainer"]
+[node name="ErrorsPanel" type="HBoxContainer" unique_id=25134720]
 visible = false
 offset_right = 1024.0
 offset_bottom = 600.0
@@ -15,7 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_nfm3c")
 metadata/_edit_layout_mode = 1
 
-[node name="ErrorButton" type="Button" parent="."]
+[node name="ErrorButton" type="Button" parent="." unique_id=1188775739]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -26,19 +26,19 @@ flat = true
 alignment = 0
 text_overrun_behavior = 4
 
-[node name="Spacer" type="Control" parent="."]
+[node name="Spacer" type="Control" parent="." unique_id=212953081]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="PreviousButton" type="Button" parent="."]
+[node name="PreviousButton" type="Button" parent="." unique_id=333091274]
 layout_mode = 2
 icon = SubResource("DPITexture_w0gko")
 flat = true
 
-[node name="CountLabel" type="Label" parent="."]
+[node name="CountLabel" type="Label" parent="." unique_id=1986218951]
 layout_mode = 2
 
-[node name="NextButton" type="Button" parent="."]
+[node name="NextButton" type="Button" parent="." unique_id=1057935569]
 layout_mode = 2
 icon = SubResource("DPITexture_w0gko")
 flat = true

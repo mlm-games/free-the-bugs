@@ -1,21 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cml6f2nq185vt"]
+[gd_scene format=3 uid="uid://cml6f2nq185vt"]
 
 [ext_resource type="Script" uid="uid://bw0iehhew5tdr" path="res://addons/basic_settings_menu/templates/base_setting_control.gd" id="1_2ycoi"]
 
-[node name="BooleanContainer" type="HBoxContainer"]
+[node name="BooleanContainer" type="HBoxContainer" unique_id=1020499986]
 offset_right = 53.0
 offset_bottom = 24.0
 size_flags_horizontal = 3
 alignment = 2
 script = ExtResource("1_2ycoi")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1909045783]
 layout_mode = 2
 
-[node name="SpacerControl" type="Control" parent="."]
+[node name="SpacerControl" type="Control" parent="." unique_id=838876300]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.5
 
-[node name="InteractablePartOfSetting" type="CheckButton" parent="."]
+[node name="InteractablePartOfSetting" type="CheckButton" parent="." unique_id=2131241398]
 layout_mode = 2

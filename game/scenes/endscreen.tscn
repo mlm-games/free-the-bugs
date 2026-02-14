@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://clprydxrsa1c"]
+[gd_scene format=3 uid="uid://clprydxrsa1c"]
 
 [ext_resource type="Script" uid="uid://3vghbit441un" path="res://game/scenes/endscreen.gd" id="1_527mp"]
 [ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://addons/my-ecosystem-template/buttons/anim_button.gd" id="2_tsene"]
 
-[node name="EndScreen" type="Control"]
+[node name="EndScreen" type="Control" unique_id=581428991]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_527mp")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1487318881]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,34 +21,34 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=173457985]
 layout_mode = 2
 alignment = 1
 
-[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer" unique_id=165744563]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1073973932]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.55
 theme_override_constants/separation = 20
 
-[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1639642619]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.4
 
-[node name="PlayButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=412627741]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Return to start"
 script = ExtResource("2_tsene")
 metadata/_custom_type_script = "uid://cmo5qw3rubish"
 
-[node name="CreditsButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=1869212044]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -56,16 +56,16 @@ text = "Credits"
 script = ExtResource("2_tsene")
 metadata/_custom_type_script = "uid://cmo5qw3rubish"
 
-[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=520035243]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="PanelContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer" unique_id=635042246]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="WinLabel" type="RichTextLabel" parent="."]
+[node name="WinLabel" type="RichTextLabel" parent="." unique_id=1007281963]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -76,7 +76,7 @@ text = "[shake][font_size=50][color=purple]You win?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimeLabel" type="RichTextLabel" parent="."]
+[node name="TimeLabel" type="RichTextLabel" parent="." unique_id=862998149]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
